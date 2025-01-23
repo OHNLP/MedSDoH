@@ -1,0 +1,16 @@
+// 1. Mentions of being active in religious or community groups
+\b(active in (her|his) (church|mosque|religious|synagogue|temple))\b
+\b(attend(s|ing)? (church|community activities?|temple|mosque|synagogue))\b
+\b(visit(s|ing)? (church|family)|go(es|ing)? to church)\b
+
+// 2. Mentions of friends or close relationships
+\b(close (friend(s)?|relationship with)|mutual friends?|friend of a friend|reported having friends|reports having friends)\b
+\b(has|have) (a good friend|brother|sister|special person|family|close (friend|friends)|friend(s)?|good friend(s)?|many friend(s)?|lots of friend(s)?)\b
+\b(live(s)?|moved) with friend(s)?\b
+\b(stay(ing)? (at|with) (a )?friend(’s)?)\b
+
+// 3. Mentions of social activities or increased socialization
+\b(increased social (activity|ization)|social activity|social (network|support network|support))\b
+\b(see(s)? friend(s)?|socialize(s|d)?|popular|was popular)\b
+\b(family (connection|meeting|visit(s)?)|friend connection)\b
+\b(club house|commune|community activity|domiciled with friend(s)?)\b

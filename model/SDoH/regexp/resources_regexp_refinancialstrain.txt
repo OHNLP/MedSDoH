@@ -1,0 +1,49 @@
+// 1. Financial concerns, assistance, constraints, or hardships
+\b(financ(ial|es)?|subsidized|economic|pca|clothing|cash)(\s+\S+){0,5}\s(assistance|support|concerns?|constraints?|difficult(y|ies)|stress(ors?)?|problems?|limit(ed)?|needs?|hardship)\b
+
+// 2. Medical assistance or support constraints
+\bmedical(\s+\S+){0,5}\s(assistance|support|concerns?|constraints?|difficult(y|ies)|stress(ors?)?|limit(ed)?)\b
+
+// 3. Struggles or difficulties with finances or coverage
+\b(assist(ing)?|help(ing)?|difficult|eligibility|barriers?|struggl(es?|ing)|anxiet(ies|y))(\s+\S+){0,15}\s(finances?|financial(\s+(resources?|assistance))?|clothing|coverage|affording?)\b
+
+// 4. Insufficient or limited income
+\b(decreased|insufficient|not enough|less|fixed|limited|reduction|no|expenses exceed)(\s+\S+){0,5}\s(income)\b
+
+// 5. Inability to afford costs, bills, or services
+\b((can|could)?\s?not|(un)?able to|not have|hard|options?|concern(s|ed)?|difficult(y|ies)|worr(y|ied)|ow(es|ing)?|inability|high)(\s+\S+){0,5}\s(afford(ing)?|pay|bill(s)?|cost(s)?|business|money)\b
+
+// 6. Employment challenges and instability
+\b(los(s|t|ing)|quit(s|ing)?|find(s|ing)?|instability|difficult(y|ies)|unable to|concern(ed)?|barriers?)(\s+\S+){0,4}\s(employment|jobs?|out of work(ing)?)\b
+\b(unemploy(ed|ment)|job resources?)\b
+\b(can)?\s?not(\s+\S+){0,2}\s(employed)\b
+
+// 7. Issues with insurance or lack of coverage
+\b(no(t have|t cover(ed)?)?|lapse|lack|lost|den(y|ied))(\s+\S+){0,5}\s(insurance)\b
+\b(not|neither)(\s+\S+){0,5}\s(ha(d|ving)|covered by)(\s+\S+){0,2}\s(insurance)\b
+\b(insur(ance|er)|job)(\s+\S+){0,10}\s(lapsed?|end(ed)?|den(y|ied)|lost|expired)\b
+\b(concerns?(\s+\S+){0,2}\s(financial|insurance)|(financial|insurance)\sconcerns?)\b
+
+// 8. Repossession or loss of assets (e.g., car)
+\b(car(\s+\S+){0,3}\s(re(\S| )?possessed|taken)|taken(\s+\S+){0,3}\s(car))\b
+
+// 9. Paycheck limitations
+\b(paychecks?(\s+\S+){0,10}\s(limit(ed)?|small))\b
+
+// 10. Financial dependency or constraints
+\b(due to|as)\sfinances\b
+\bdepending on(\s+\S+){0,2}\sfinancially\b
+
+// 11. Health care and government assistance
+\bhealth care(\s+\S+){0,10}\sgovernment\b
+
+// 12. Issues understanding costs or payments
+\b(spend down|don(')?t know)(\s+\S+){0,10}\s(cost|pay)\b
+
+// 13. Insurance appeals
+\bappeal(\s+\S+){0,10}\s(insur(ance|er))\b
+
+// 14. Miscellaneous patterns
+\bno hpe\b
+\b(try(ing)? to|hope to)\s(obtain|get)(s|t?ing)?(\s+\S+){0,4}\s(employment|jobs?|out of work(ing)?)\b
+\bconnect(ing)? with(\s+\S+){0,4}\s(social|health)\swork(er)?\b

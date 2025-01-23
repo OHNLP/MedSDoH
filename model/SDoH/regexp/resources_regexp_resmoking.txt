@@ -1,0 +1,18 @@
+// 1. General mentions of tobacco and cigarettes
+\b(tobacco|tabaco|tabbaco|tobbaco|tobac|tobaco|tobaccoo|tobbacco|latakia|dokha|nicotine|smok(e|ing|ed|s)?)\b
+
+\b(cig(ar|arette)s?|cigarillos?|hand-rolled (cigarettes?|cig)|roll(-|\s)?(your own|ups?|up)|RYO|rolling tobacco|baccy|spliffs?)\b
+
+// 2. Mentions of specific smoking devices (e.g., hookah, pipe)
+\b(blunts?|hook(ah?|a)|shisha|narghile|water(-|\s)?pipe|vapor(izer|isation|isation)?|vapour(izer|isation|isation)?)\b
+
+// 3. Mentions of vaping and electronic cigarettes
+\b(e(-)?(cig(arettes?)?|hookah|liquid|juice)|juul(ing|s)?|vape(pens?)?|vap(our|e)?(s|d|ing)?)\b
+\b(electronic (cig(arettes?)?|hookah)|ecigs?|pv|apv|mods?|vape pens?)\b
+
+// 4. Mentions of vaping accessories or components
+\b(juice|atomizer|battery|charger|tank|cart(omizer|ridge)?|coil|pg|vg|cigalike|tanklet|passthrough|passthru)\b
+\b(gpen|pax|dynavap|volcano|rig|phix|firefly|dabs?|dabbing|wax|concentrates)\b
+
+// 5. Slang and lesser-known terms
+\b(suorin|mfib|tfn|enano|vapcap|ritchy|dbv|flowermate|charm|dct)\b

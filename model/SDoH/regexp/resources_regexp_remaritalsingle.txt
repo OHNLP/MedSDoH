@@ -1,0 +1,11 @@
+// 1. Mentions of significant, intimate, or romantic relationships
+\b(significant|intimate|romantic)\srelationship(s?)\b
+
+// 2. Mentions of dating or being in a relationship
+\b(dating|going out|seeing|girlfriend|boyfriend)\b
+
+// 3. Mentions of being single or not in a relationship
+\b(single|no(t)?(\s+\S*){0,2}\srelationship(s?))\b
+
+// 4. Mentions of no relationship currently
+\brelationship(\s+\S*){0,2}\snone currently\b

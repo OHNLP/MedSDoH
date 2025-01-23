@@ -1,0 +1,5 @@
+// 1. Mentions of spouse (husband or wife) passing away
+\b(husband|wife)(\s+\S*){0,5}\s(passed away|died|deceased)\b
+
+// 2. Mentions of widow or widowed status
+\bwidow(ed)?\b

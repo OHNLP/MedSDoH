@@ -1,0 +1,20 @@
+// 1. General phrases indicating food insecurity or assistance needs
+\b(need(s|ed)?|request(ed)?|interview(ed)?|used?|utiliz(ing|ed?)|help(ed)?|discuss(ed)?|assisted|assistance|ha(ve|s|d)|call(ed)?|referral|through)(\s+\S+){0,10}\s(food|(grocery)?\s?shopping)\b
+
+// 2. Meals from Salvation Army
+\bmeals?(\s+\S+){0,2}\s(at|from)\s(the\s)?salvation army\b
+
+// 3. No regular or consistent access to meals
+\bwith no\s(regular|consistent)(\s+\S+){0,2}\smeals\b
+
+// 4. Food stamps, assistance, or support
+\bfoods?\s(stamps?|assistance|support)\b
+
+// 5. Unstable food access or inability to afford food
+\b(unstable|cannot afford)(\s+\S+){0,2}\sfoods?\b
+
+// 6. Phrases related to lack of food access or affordability
+\bno(r the)?\sfood\b
+\bconnected to\sWIC\b
+\bpoverty\b
+\b(food insecurity|lack of food access|insufficient food supply|inadequate nourishment|uncertain food supply|limited access to (nutritional|safe)?\s?food|lack of food|inability to (purchase|buy) food|consistent hunger|food insecure|low food security|reduced access to food|difficulties accessing food|inadequate food access|nutritional uncertainty|dietary insufficiency|lack of sustenance|hunger crisis|food vulnerability|insufficient nourishment|limited food availability|nutritional deprivation|insecure food supply|hunger insecurity|irregular food access|dietary insecurity|food shortage|undernourishment|food scarcity|nutritional instability|food poverty)\b

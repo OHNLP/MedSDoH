@@ -1,0 +1,16 @@
+// 1. Mentions of family support or involvement
+\b(family|parent(s)?|brother(s)?|sister(s)?|mother|father|grand( father| mother| parent| parents))( helps?|supports?)\b
+\b(family members?) (help|support)\b
+\b(has (family|help from family|family support|family for support))\b
+\b(support from family|family supportive|supportive family)\b
+
+// 2. Mentions of social connections and relationships
+\b(close (family ties|relationships|with (her|his)))\b
+\b(good family|less socially isolated)\b
+
+// 3. Mentions of friends providing support
+\b(friend(s)? (help|support))\b
+\b(supportive friends)\b
+
+// 4. General mentions of social support
+\b(social support|supportive throughout|source of support)\b

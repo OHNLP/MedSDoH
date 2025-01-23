@@ -1,0 +1,16 @@
+\b(need(s\S?|ed)?|request(ed)?|interview(ed)?|used?|utiliz(ing|ed?)|help(ed)?|discuss(ed)?|assist(ed|ance)?|ha(ve|s|d)|ma(de|kes?)|call(ed)?|referral|through)(\s\S+){0,10} (housing|landlord|(landlord\/)?rental property)\b
+\b(undomiciled|homeless( shelters?|ness)?)\b
+\b(concerns?(\s\S+){0,5} (housing|living))|((housing|living)(\s\S+){0,5} concerns?)\b
+\b((kick(ed)?|moved?) out|los(t|ing)|difficulty|instability)(\s\S+){0,5} (home|living|housing|landlord|(landlord\/)?rental property)\b
+\b(dorothy day|catholic charities|section 8 housing|free rent|evicted)\b
+\b(liv(ing|es) in)(\s\S+){0,5} (motel|van)\b
+\bhousing (program|needs)\b
+\bhouse(\s\S+){0,5} foreclosed\b
+homelessness risk
+(shelter|tenure|housing|accommodation|dwelling|domicile|residence|living situation)\sinstability
+(abode|shelter)\suncertainty
+(residence|housing|accommodation)\svulnerability
+(home|lodging|housing|place)\sinsecurit(y|ies)
+(tenancy|residen(ce|tial))\suncertainty
+instability on housing
+\b(live(s|d)?|living|stay(s|ed|ing)?) on (the )?street(s?)\b

@@ -1,0 +1,9 @@
+overnight shift
+night shift
+(work|works|working)\W(\S+\s+){0,10}every.?other.?night
+night shifts
+when he does not night shift
+not like working the overnight shift
+swing shift
+third shift
+3rd shift

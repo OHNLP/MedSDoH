@@ -1,0 +1,21 @@
+// 1. General mentions of isolation, loneliness, or social withdrawal
+\b(isolat(ed|ion)?|lonely|loneliness|social exclusion|social withdrawal|socially (disconnected|isolated|withdrawn|isolating))\b
+
+// 2. Mentions of lack or limitation of social support
+\b(lack(s)? (in )?(psychosocial|social|family)( and family)?\s?support(s)?|poor (social )?support|limited (family|social|support systems?)|little (to no|family|social)?\s?support)\b
+
+// 3. Reports or descriptions related to no or limited social interaction
+\b(has (no|little|limited)\s?(family|social)?\s?support|no (social|family|friend) supports?|no one (in (his|her) family )?supports (him|her))\b
+\b(denies having (any|family|friend)?\s?support|does not (identify any social support|participate in social activities))\b
+
+// 4. Behavioral patterns related to isolation
+\b(reported|reports) (having no|limited) social support\b
+\b(reduce|combating) (her|his) isolation\b
+\b(tendency to isolate|isolate(s)? (herself|himself)|isolat(ing|ed) (at home|from (everyone|peers)))\b
+
+// 5. Specific mentions of chronic or increasing isolation
+\b(chronic|increasingly) isolated\b
+\b(life of isolation|all alone|is alone|address isolation)\b
+
+// 6. Social withdrawal behaviors or tendencies
+\b(social withdrawal (behaviors?)?|social contact limited|socially disconnected|social withdraw)\b

@@ -1,0 +1,191 @@
+<!ENTITY name "SDoH_Tagger">
+
+<!ELEMENT Adverse_Childhood_Experience ( #PCDATA ) >
+<!ATTLIST Adverse_Childhood_Experience certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Adverse_Childhood_Experience status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Adverse_Childhood_Experience experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Adverse_Childhood_Experience exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Adverse_Childhood_Experience comment CDATA "" >
+
+<!ELEMENT Alcohol_Abuse ( #PCDATA ) >
+<!ATTLIST Alcohol_Abuse certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Alcohol_Abuse status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Alcohol_Abuse experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Alcohol_Abuse exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Alcohol_Abuse comment CDATA "" >
+
+<!ELEMENT Digital_Access ( #PCDATA ) >
+<!ATTLIST Digital_Access certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Digital_Access status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Digital_Access experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Digital_Access exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Digital_Access comment CDATA "" >
+
+<!ELEMENT Drug_Substance_Abuse ( #PCDATA ) >
+<!ATTLIST Drug_Substance_Abuse certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Drug_Substance_Abuse status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Drug_Substance_Abuse experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Drug_Substance_Abuse exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Drug_Substance_Abuse comment CDATA "" >
+
+<!ELEMENT Education_Level ( #PCDATA ) >
+<!ATTLIST Education_Level certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Education_Level status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Education_Level experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Education_Level exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Education_Level comment CDATA "" >
+
+<!ELEMENT Employment_Status ( #PCDATA ) >
+<!ATTLIST Employment_Status certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Employment_Status status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Employment_Status experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Employment_Status exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Employment_Status comment CDATA "" >
+
+<!ELEMENT Environmental_Exposure ( #PCDATA ) >
+<!ATTLIST Environmental_Exposure certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Environmental_Exposure status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Environmental_Exposure experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Environmental_Exposure exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Environmental_Exposure comment CDATA "" >
+
+<!ELEMENT Financial_Strain ( #PCDATA ) >
+<!ATTLIST Financial_Strain certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Financial_Strain status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Financial_Strain experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Financial_Strain exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Financial_Strain comment CDATA "" >
+
+<!ELEMENT Food_Insecurity ( #PCDATA ) >
+<!ATTLIST Food_Insecurity certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Food_Insecurity status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Food_Insecurity experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Food_Insecurity exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Food_Insecurity comment CDATA "" >
+
+<!ELEMENT Gender_Identity ( #PCDATA ) >
+<!ATTLIST Gender_Identity certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Gender_Identity status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Gender_Identity experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Gender_Identity exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Gender_Identity comment CDATA "" >
+
+<!ELEMENT Geographic_Location ( #PCDATA ) >
+<!ATTLIST Geographic_Location certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Geographic_Location status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Geographic_Location experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Geographic_Location exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Geographic_Location comment CDATA "" >
+
+<!ELEMENT Health_Literacy ( #PCDATA ) >
+<!ATTLIST Health_Literacy certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Health_Literacy status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Health_Literacy experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Health_Literacy exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Health_Literacy comment CDATA "" >
+
+<!ELEMENT Home_and_Social_Environment ( #PCDATA ) >
+<!ATTLIST Home_and_Social_Environment certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Home_and_Social_Environment status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Home_and_Social_Environment experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Home_and_Social_Environment exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Home_and_Social_Environment comment CDATA "" >
+
+<!ELEMENT Housing_Instability ( #PCDATA ) >
+<!ATTLIST Housing_Instability certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Housing_Instability type ( instability | recovery | streetliving | homeless | temporary ) #IMPLIED "confirmed" >
+<!ATTLIST Housing_Instability status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Housing_Instability experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Housing_Instability exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Housing_Instability comment CDATA "" >
+
+<!ELEMENT Insurance_Status ( #PCDATA ) >
+<!ATTLIST Insurance_Status certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Insurance_Status status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Insurance_Status experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Insurance_Status exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Insurance_Status comment CDATA "" >
+
+<!ELEMENT Marital_Status ( #PCDATA ) >
+<!ATTLIST Marital_Status certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Marital_Status status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Marital_Status experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Marital_Status exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Marital_Status comment CDATA "" >
+
+<!ELEMENT Occupational_Night_Shifts ( #PCDATA ) >
+<!ATTLIST Occupational_Night_Shifts certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Occupational_Night_Shifts status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Occupational_Night_Shifts experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Occupational_Night_Shifts exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Occupational_Night_Shifts comment CDATA "" >
+
+<!ELEMENT Physical_Activity ( #PCDATA ) >
+<!ATTLIST Physical_Activity certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Physical_Activity status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Physical_Activity experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Physical_Activity exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Physical_Activity comment CDATA "" >
+
+<!ELEMENT Physical_Sexual_Abuse ( #PCDATA ) >
+<!ATTLIST Physical_Sexual_Abuse certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Physical_Sexual_Abuse status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Physical_Sexual_Abuse experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Physical_Sexual_Abuse exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Physical_Sexual_Abuse comment CDATA "" >
+
+<!ELEMENT Race_or_Ethnicity ( #PCDATA ) >
+<!ATTLIST Race_or_Ethnicity certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Race_or_Ethnicity status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Race_or_Ethnicity experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Race_or_Ethnicity exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Race_or_Ethnicity comment CDATA "" >
+
+<!ELEMENT Sex_At_Birth ( #PCDATA ) >
+<!ATTLIST Sex_At_Birth certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Sex_At_Birth status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Sex_At_Birth experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Sex_At_Birth exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Sex_At_Birth comment CDATA "" >
+
+<!ELEMENT Sexual_Orientation ( #PCDATA ) >
+<!ATTLIST Sexual_Orientation certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Sexual_Orientation status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Sexual_Orientation experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Sexual_Orientation exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Sexual_Orientation comment CDATA "" >
+
+<!ELEMENT Smoking_Status ( #PCDATA ) >
+<!ATTLIST Smoking_Status certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Smoking_Status status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Smoking_Status experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Smoking_Status exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Smoking_Status comment CDATA "" >
+
+<!ELEMENT Social_Family_Support  ( #PCDATA ) >
+<!ATTLIST Social_Family_Support  certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Social_Family_Support  status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Social_Family_Support  experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Social_Family_Support  exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Social_Family_Support  comment CDATA "" >
+
+<!ELEMENT Supplies ( #PCDATA ) >
+<!ATTLIST Supplies certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Supplies status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Supplies experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Supplies exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Supplies comment CDATA "" >
+
+<!ELEMENT Technical_Literacy ( #PCDATA ) >
+<!ATTLIST Technical_Literacy certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Technical_Literacy status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Technical_Literacy experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Technical_Literacy exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Technical_Literacy comment CDATA "" >
+
+<!ELEMENT Transportation_Barrier ( #PCDATA ) >
+<!ATTLIST Transportation_Barrier certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Transportation_Barrier status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Transportation_Barrier experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Transportation_Barrier exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Transportation_Barrier comment CDATA "" >

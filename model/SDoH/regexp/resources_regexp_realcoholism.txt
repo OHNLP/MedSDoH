@@ -1,0 +1,27 @@
+alcohol abuse
+alcohol withdrawal
+alcohol consume
+alcoholism
+alcohol disorder
+\bdrinking (?:often|daily|bing|daily|every|heav|prob|mis|over)
+\bpurging
+\bpurge\b
+Alcoholics anony
+alcohol abuse
+alcohol addiction
+alcohol dependence
+alcohol intoxication
+alcohol pancreatitis
+alcohol withdrawal
+alcoholic
+alcoholic cirrhosis
+alcoholic encephalopathy
+alcoholic fatty liver
+alcohol.?induced
+alcoholism
+//drunken
+excessive drinking
+//\bAA\b
+alcoholic
+alcoholism
+\bAUD\b

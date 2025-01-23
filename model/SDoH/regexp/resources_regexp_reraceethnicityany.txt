@@ -1,0 +1,92 @@
+aa
+afghan
+african american
+african
+alaskan native
+alaskan nation
+algeria
+american indian
+anglo saxon
+asian
+austronesian
+arab
+arabian
+black
+bangladeshi
+bengali
+burmese
+bi-race
+bi-racial
+cameroon
+caucasian
+canadian
+caucasoid
+cambodian
+central american
+chinese
+congo
+cuban
+cuban american
+dominican
+danish
+dutch
+european
+egyptian
+eskimo
+ethiopia
+french
+german
+ghana
+gujarati
+haitian
+hawaiian
+hispanic
+irish
+indian
+israeli
+jamaican
+japanese
+jewish
+kenya
+korean
+latina
+latino
+libyan
+laotian
+malayalam
+malaysian
+mexican
+mixed race
+mixed racial
+multi race
+multi racial
+moroccan
+morocco
+native american
+native
+alaskan
+nigeria
+north american
+oriental
+pacificislander
+pakistani
+philipino
+philippine
+polish
+polynesian
+puerto rican
+russian
+scandinavian
+spanish
+south american
+sri lankan
+sudan
+swedish
+swiss
+tamil
+telungu
+thai
+uganda
+vietnamese
+white
+zambia

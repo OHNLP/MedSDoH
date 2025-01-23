@@ -1,0 +1,20 @@
+// 1. Common transgender terms and phrases
+\b(F to M|M to F|trans(gender| female| male| men| people| women)?|trans-?(gender|masculine|feminine|health)?|transmen|transwomen)\b
+\b(transsexual|transvest|intersex|reassignment surgery|sex (change|reassignment)|gender (reassignment|confirmation|surgery|transition))\b
+
+// 2. Mentions of non-binary or gender-fluid identities
+\b(non-?binary|gender(-)?(fluid|queer|neutral|nonconform(ing)?|non-conform(ing)?))\b
+\b(genderfluid|null gender|gender creative|agender)\b
+
+// 3. Phrases about assigned or biological sex
+\b(assigned (male|female|gender|sex)|birth sex|biological(ly)? (male|female))\b
+
+// 4. Mentions of hormonal and surgical procedures
+\b(feminization|feminizing (hormone therapy|vaginoplasty)|masculinization|masculinizing hormone therapy)\b
+\b(hormonal transition|gender affirm(ing)?|transition to (male|female))\b
+
+// 5. Mentions of gender identity, pronouns, or dysphoria
+\b(gender (dysphoria|identity (disorder|issues?|uncertain)|incongruence|issues|presentation|pronoun)|they/them|theythem)\b
+
+// 6. Other relevant terms (misgendering, deadnames)
+\b(misgender|dead[ -]?name|desired gender|binary trans|cross (gender|sex))\b

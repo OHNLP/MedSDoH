@@ -1,0 +1,10 @@
+hispanic
+latina
+latino
+south american
+central american
+cuban
+mexican
+puerto rican
+dominican
+spanish
