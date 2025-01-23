@@ -1,0 +1,20 @@
+# conda env create -f env.yml
+
+name: *********  # set the name here
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip
+  - python>=3.12
+  - pandas
+  - matplotlib
+  - numpy
+  - black
+  - flake8
+  - isort
+  - ipykernel
+  - pip:
+    - python-dotenv
+    - pyodbc
+    - -e .
