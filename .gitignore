@@ -141,7 +141,6 @@ venv.bak/
 .spyderproject
 .spyproject
 
-
 # Rope project settings
 .ropeproject
 
@@ -166,5 +165,5 @@ cython_debug/
 data/
 .DS_Store
 
-#models
-models/
+# model files
+*.jar

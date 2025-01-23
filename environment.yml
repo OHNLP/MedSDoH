@@ -1,6 +1,6 @@
 # conda env create -f env.yml
 
-name: *********  # set the name here
+name: sdoh_tagger
 channels:
   - defaults
   - conda-forge
@@ -15,6 +15,6 @@ dependencies:
   - isort
   - ipykernel
   - pip:
-    - python-dotenv
-    - pyodbc
-    - -e .
+      - python-dotenv
+      - pyodbc
+      - -e .
