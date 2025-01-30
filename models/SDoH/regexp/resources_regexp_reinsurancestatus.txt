@@ -1,0 +1,6 @@
+\b(Medicare( (specify traditional|managed))?|Medicaid( (specify traditional|managed))?|self[-\s]?pay|uninsured|lack of insurance|not eligible for health insurance|no longer had (insurance|the prescription plan)|coverage under Medicaid|dual coverage|underinsured|insurance gap|waiting period for insurance|out of network|payer source|coverage denial|no active insurance)\b
+
+\b(no(t have|t cover(ed)?)?|lapse|lack|lost|den(y|ied))(\s+\S+){0,5}\s(insurance)\b
+\b(not|neither)(\s+\S+){0,5}\s(ha(d|ving)|covered by)(\s+\S+){0,2}\s(insurance)\b
+\b(insur(ance|er)|job)(\s+\S+){0,10}\s(lapsed?|end(ed)?|den(y|ied)|lost|expired)\b
+\b(concerns?(\s+\S+){0,2}\s(financial|insurance)|(financial|insurance)\sconcerns?)\b

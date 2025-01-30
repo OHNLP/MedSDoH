@@ -1,0 +1,4 @@
+
+\b(sexual orientation|sexual preference|romantic orientation|attracted to (men|women|both|same sex|opposite sex|multiple genders))\b
+\b(emotional attraction to|romantic attraction to|sexual attraction to|heterosexual|homosexual|gay|lesbian|bisexual|pansexual|asexual|queer|questioning|straight)\b
+\b(same-sex (relationship|attraction|couple)|MSM|WSW|men who have sex with men|women who have sex with women|same-gender attraction)\b

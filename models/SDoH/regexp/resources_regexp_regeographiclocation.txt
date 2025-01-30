@@ -1,0 +1,6 @@
+\b(was (born|raised|grew up) (in|near|around|within|outside|throughout|across))\b
+\b(lived (in|near|around|within|outside|throughout|across))\b
+\b(moved (to|from|into|out of|near|within|around))\b
+\b(originally (from|lived in))\b
+\b(spent childhood (in|near|around|within|outside))\b
+\b(is a (resident|native) (of|from))\b

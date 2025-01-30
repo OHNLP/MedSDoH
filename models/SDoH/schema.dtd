@@ -14,13 +14,6 @@
 <!ATTLIST Alcohol_Abuse exclusion ( yes | no ) #IMPLIED "no" >
 <!ATTLIST Alcohol_Abuse comment CDATA "" >
 
-<!ELEMENT Digital_Access ( #PCDATA ) >
-<!ATTLIST Digital_Access certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
-<!ATTLIST Digital_Access status ( history | present ) #IMPLIED "present" >
-<!ATTLIST Digital_Access experiencer ( patient | other ) #IMPLIED "patient" >
-<!ATTLIST Digital_Access exclusion ( yes | no ) #IMPLIED "no" >
-<!ATTLIST Digital_Access comment CDATA "" >
-
 <!ELEMENT Drug_Substance_Abuse ( #PCDATA ) >
 <!ATTLIST Drug_Substance_Abuse certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
 <!ATTLIST Drug_Substance_Abuse status ( history | present ) #IMPLIED "present" >

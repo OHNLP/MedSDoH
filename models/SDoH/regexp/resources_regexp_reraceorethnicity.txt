@@ -1,3 +1,30 @@
+hispanic
+latina
+latino
+south american
+central american
+cuban
+mexican
+puerto rican
+dominican
+spanish
+african american
+black
+aa
+haitian
+african
+sudan
+nigeria
+algeria
+ethiopia
+kenya
+ghana
+uganda
+cameroon
+congo
+zambia
+carribean
+jamaican
 aa
 afghan
 african american

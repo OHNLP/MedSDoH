@@ -1,0 +1,2 @@
+\b(sex at birth|assigned (male|female) at birth|birth sex|sex assigned at birth|biological sex|natal sex|born (male|female)|designated (male|female) at birth|genotypic sex|chromosomal sex|assigned sex)\b
+\b(assigned (male|female|gender|sex)|birth sex|biological(ly)? (male|female))\b

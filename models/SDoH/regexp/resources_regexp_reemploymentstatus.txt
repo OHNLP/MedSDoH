@@ -1,0 +1,1 @@
+\b(not employed|no longer working( part-time)?|on disability|looking for employment|seeking employment|unemployed|without a job|out of work|jobless|laid off|unable to work|between jobs)\b

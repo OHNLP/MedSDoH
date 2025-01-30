@@ -1,8 +1,0 @@
-// 1. Mentions of being married or previously married
-\b(was married|divorce(d|e)?|divorcee)\b
-
-// 2. Mentions of ex-husbands or ex-wives (with optional hyphens)
-\bex-?(husband|wife)\b
-
-// 3. Mentions of ending marriage or separation
-\bended(\s+\S+){0,2}\s?marriage\b

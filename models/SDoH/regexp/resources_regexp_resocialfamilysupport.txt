@@ -1,0 +1,18 @@
+\b(active in (her|his) (church|mosque|religious|synagogue|temple)|attend(s|ing)? (church|community activities?|temple|mosque|synagogue)|visit(s|ing)? (church|family)|go(es|ing)? to church)\b
+\b(close (friend(s)?|relationship with)|mutual friends?|friend of a friend|reported having friends?|reports having friends?)\b
+\b(has|have)\s(a (good friend|special person)|close (friend|friends)|many friend(s)?|lots of friend(s)?|strong social support|strong (family|social) network)\b
+\b(live(s)?|moved) with friend(s)?|stay(ing)? (at|with) (a )?friend(’s?)?\b
+\b(increased social (activity|ization)|social activity|social (network|support network|support))\b
+\b(see(s)? friend(s)?|socialize(s|d)?|popular|was popular|family (connection|meeting|visit(s)?)|friend connection|club house|commune|community activity|domiciled with friend(s)?)\b
+\b(denies having|does not have|doesn’t have)\s(no|any|many)?\s?(friends?|family|close (family|friends?)|support network|social contacts?)\b
+\b(few (friends|social contacts)|0 friends)\b
+\b(lack of (a )?support network|increase social activity|wants to make new friends)\b
+\b(has no (family|friends?|social activities)|does not socialize|no family|no friends)\b
+\b(alone in the world|aloneness|experiencing feelings of isolation|feel(s|ing)? (isolated|alone|isolate)|feeling of not having anyone|feelings of isolation|feels all alone|loneliness|lonely|sense of isolation)\b
+\b(absence of|lacking|lacks|limited|deficit in|no)\s(emotional support|social connections?|friends?|family support)\b
+\b(not|does(n’t| not)?)\s(have|get|feel comfortable sharing|confide in)\s(friend(s)?|family|support network|someone to talk to)\b
+\b(needs|in need of|to increase)\s(emotional support|social connections?|friendship|family interaction)\b
+\b(can(’t|not)?|does(n’t| not)?|unable to|will not)\s(talk to|confide in|speak openly|share personal)\s?(issues|problems|concerns|emotions|feelings)\b
+\b(no one|nobody)\s(to (confide in|talk to|share personal|speak openly|understand(s)?)|cares about them)\b
+\b(prevents (her|him) from confiding|reluctance to confide in others|will not confide in)\b
+\b(no one (understands|who truly understands|for emotional support|to rely on))\b

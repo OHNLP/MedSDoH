@@ -1,0 +1,1 @@
+(?i)\b(assist(ed|ance|ing)?|help(ed|ing)?|support(ed|ing)?|reapply(ing|ed)?)\b(\s+\S+){0,5}\b(Medicaid|Medicare|SNAP|application|Savings Plan|prescription plan|language line|interpreter)\b

@@ -1,9 +1,0 @@
-// 1. Mentions of not having friends, family, or social networks
-\b(denies having|does not have|doesn’t have|had|has|having)\s(no|any|many)?\s?(friends?|family|close (family|friends?)|support network|social contacts?)\b
-\b(few (friends|social contacts)|0 friends)\b
-
-// 2. Mentions of lacking or wanting social networks
-\b(lack of (a )?support network|increase social activity|wants to make new friends)\b
-
-// 3. Mentions of no participation in social activities
-\b(has no (family|friends?|social activities)|does not socialize|no family|no friends)\b

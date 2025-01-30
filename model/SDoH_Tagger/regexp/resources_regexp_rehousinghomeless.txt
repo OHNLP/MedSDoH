@@ -1,8 +1,0 @@
-(house|home)less(ness)?
-un(housed|shelter)
-unsheltered homelessness
-lack of (shelter|housing)
-lacking (shelter|housing)
-housing lack
-homeless( (family|shelter(s)))?
-(families|street|shelter)\shomeless
