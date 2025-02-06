@@ -1,51 +1,51 @@
-RULENAME="adversechildhoodexperience",REGEXP="\b(?:%readversechildhoodexperience)\b",LOCATION="",NORM="Adverse_Childhood_Experience"  
+RULENAME="cm_r_adversechildhoodexperience",REGEXP="\b(?:%readversechildhoodexperience)\b",LOCATION="",NORM="Adverse_Childhood_Experience"  
 
-RULENAME="alcoholabuse",REGEXP="\b(?:%realcoholabuse)\b",LOCATION="",NORM="Alcohol_Abuse"  
+RULENAME="cm_r_alcoholabuse",REGEXP="\b(?:%realcoholabuse)\b",LOCATION="",NORM="Alcohol_Abuse"  
 
-RULENAME="drugsubstanceabuse",REGEXP="\b(?:%redrugsubstanceabuse)\b",LOCATION="",NORM="Drug_Substance_Abuse"  
+RULENAME="cm_r_drugsubstanceabuse",REGEXP="\b(?:%redrugsubstanceabuse)\b",LOCATION="",NORM="Drug_Substance_Abuse"  
 
-RULENAME="educationlevel",REGEXP="\b(?:%reeducationlevel)\b",LOCATION="",NORM="Education_Level"  
+RULENAME="cm_r_educationlevel",REGEXP="\b(?:%reeducationlevel)\b",LOCATION="",NORM="Education_Level"  
 
-RULENAME="employmentstatus",REGEXP="\b(?:%reemploymentstatus)\b",LOCATION="",NORM="Employment_Status"
+RULENAME="cm_r_employmentstatus",REGEXP="\b(?:%reemploymentstatus)\b",LOCATION="",NORM="Employment_Status"
 
-RULENAME="environmentalexposure",REGEXP="\b(?:%reenvironmentalexposure)\b",LOCATION="",NORM="Environmental_Exposure"
+RULENAME="cm_r_environmentalexposure",REGEXP="\b(?:%reenvironmentalexposure)\b",LOCATION="",NORM="Environmental_Exposure"
 
-RULENAME="financialstrain",REGEXP="\b(?:%refinancialstrain)\b",LOCATION="",NORM="Financial_Strain"  
+RULENAME="cm_r_financialstrain",REGEXP="\b(?:%refinancialstrain)\b",LOCATION="",NORM="Financial_Strain"  
 
-RULENAME="foodinsecurity",REGEXP="\b(?:%refoodinsecurity)\b",LOCATION="",NORM="Food Insecurity"  
+RULENAME="cm_r_foodinsecurity",REGEXP="\b(?:%refoodinsecurity)\b",LOCATION="",NORM="Food Insecurity"  
 
-RULENAME="genderidentity",REGEXP="\b(?:%regenderidentity)\b",LOCATION="",NORM="Gender_Identity"
+RULENAME="cm_r_genderidentity",REGEXP="\b(?:%regenderidentity)\b",LOCATION="",NORM="Gender_Identity"
 
-RULENAME="geographiclocation",REGEXP="\b(?:%regeographiclocation)\b",LOCATION="",NORM="Geographic_Location"
+RULENAME="cm_r_geographiclocation",REGEXP="\b(?:%regeographiclocation)\b",LOCATION="",NORM="Geographic_Location"
 
-RULENAME="healthliteracy",REGEXP="\b(?:%rehealthliteracy)\b",LOCATION="",NORM="Health_Literacy"
+RULENAME="cm_r_healthliteracy",REGEXP="\b(?:%rehealthliteracy)\b",LOCATION="",NORM="Health_Literacy"
 
-RULENAME="homeandsocialenvironment",REGEXP="\b(?:%homeandsocialenvironment)\b",LOCATION="",NORM="Home_and_Social_Environment"
+RULENAME="cm_r_homeandsocialenvironment",REGEXP="\b(?:%homeandsocialenvironment)\b",LOCATION="",NORM="Home_and_Social_Environment"
 
-RULENAME="housinginstability",REGEXP="\b(?:%rehousinginstability)\b",LOCATION="",NORM="Housing_Instability"  
+RULENAME="cm_r_housinginstability",REGEXP="\b(?:%rehousinginstability)\b",LOCATION="",NORM="Housing_Instability"  
 
-RULENAME="insurancestatus",REGEXP="\b(?:%reinsurancestatus)\b",LOCATION="",NORM="Insurance_Status"  
+RULENAME="cm_r_insurancestatus",REGEXP="\b(?:%reinsurancestatus)\b",LOCATION="",NORM="Insurance_Status"  
 
-RULENAME="maritalstatus",REGEXP="\b(?:%remaritalstatus)\b",LOCATION="",NORM="Marital_Status"  
+RULENAME="cm_r_maritalstatus",REGEXP="\b(?:%remaritalstatus)\b",LOCATION="",NORM="Marital_Status"  
 
-RULENAME="occupationalnightshift",REGEXP="\b(?:%reoccupationalnightshift)\b",LOCATION="",NORM="Occupational_Night_Shifts" 
+RULENAME="cm_r_occupationalnightshift",REGEXP="\b(?:%reoccupationalnightshift)\b",LOCATION="",NORM="Occupational_Night_Shifts" 
 
-RULENAME="physicalactivity",REGEXP="\b(?:%rephysicalactivity)\b",LOCATION="",NORM="Physical_Activity"  
+RULENAME="cm_r_physicalactivity",REGEXP="\b(?:%rephysicalactivity)\b",LOCATION="",NORM="Physical_Activity"  
 
-RULENAME="physicalsexualabuse",REGEXP="\b(?:%rephysicalsexualabuse)\b",LOCATION="",NORM="Physical_Sexual_Abuse"  
+RULENAME="cm_r_physicalsexualabuse",REGEXP="\b(?:%rephysicalsexualabuse)\b",LOCATION="",NORM="Physical_Sexual_Abuse"  
 
-RULENAME="raceorethnicity",REGEXP="\b(?:%reraceorethnicity)\b",LOCATION="",NORM="Race_or_Ethnicity"  
+RULENAME="cm_r_raceorethnicity",REGEXP="\b(?:%reraceorethnicity)\b",LOCATION="",NORM="Race_or_Ethnicity"  
 
-RULENAME="sexatbirth",REGEXP="\b(?:%resexatbirth)\b",LOCATION="",NORM="Sex_At_Birth"  
+RULENAME="cm_r_sexatbirth",REGEXP="\b(?:%resexatbirth)\b",LOCATION="",NORM="Sex_At_Birth"  
 
-RULENAME="sexualorientation",REGEXP="\b(?:%resexualorientation)\b",LOCATION="",NORM="Sexual_Orientation"  
+RULENAME="cm_r_sexualorientation",REGEXP="\b(?:%resexualorientation)\b",LOCATION="",NORM="Sexual_Orientation"  
 
-RULENAME="smokingstatus",REGEXP="\b(?:%resmokingstatus)\b",LOCATION="",NORM="Smoking_Status"  
+RULENAME="cm_r_smokingstatus",REGEXP="\b(?:%resmokingstatus)\b",LOCATION="",NORM="Smoking_Status"  
 
-RULENAME="socialfamilysupport",REGEXP="\b(?:%resocialfamilysupport)\b",LOCATION="",NORM="Social_Family_Support"  
+RULENAME="cm_r_socialfamilysupport",REGEXP="\b(?:%resocialfamilysupport)\b",LOCATION="",NORM="Social_Family_Support"  
 
-RULENAME="supplies",REGEXP="\b(?:%resupplies)\b",LOCATION="",NORM="Supplies"  
+RULENAME="cm_r_supplies",REGEXP="\b(?:%resupplies)\b",LOCATION="",NORM="Supplies"  
 
-RULENAME="technicalliteracy",REGEXP="\b(?:%retechnicalliteracy)\b",LOCATION="",NORM="Technical_Literacy"  
+RULENAME="cm_r_technicalliteracy",REGEXP="\b(?:%retechnicalliteracy)\b",LOCATION="",NORM="Technical_Literacy"  
 
-RULENAME="transportationbarrier",REGEXP="\b(?:%retransportationbarrier)\b",LOCATION="",NORM="Transportation_Barrier"
+RULENAME="cm_r_transportationbarrier",REGEXP="\b(?:%retransportationbarrier)\b",LOCATION="",NORM="Transportation_Barrier"
