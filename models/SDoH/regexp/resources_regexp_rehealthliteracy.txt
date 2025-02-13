@@ -1,1 +1,2 @@
-(?i)\b(assist(ed|ance|ing)?|help(ed|ing)?|support(ed|ing)?|reapply(ing|ed)?)\b(\s+\S+){0,5}\b(Medicaid|Medicare|SNAP|application|Savings Plan|prescription plan|language line|interpreter)\b
+\b(request(ed)?|seek(s|ing)?|need(s|ed)?|help(ed|ing)?|assist(ed|ance)?|referral|not sure|unsure|uncertain|confused|does(n't| not) know|unclear)?(\s+\S+){0,10}\s?(renewal|interpreter|language line|translation services|language barrier|(?:\w+\s+)?interpreter|Language Line( interpreter)?)\b
+language line

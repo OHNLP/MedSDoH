@@ -25,3 +25,4 @@ excessive drinking
 alcoholic
 alcoholism
 \bAUD\b
+\b(drinking|alcohol consumption)\s(has|is|was|had|have)?\s?(increas(ed|ing)|escalat(ed|ing)|worsen(ed|ing)|more than usual|more frequent)\b
