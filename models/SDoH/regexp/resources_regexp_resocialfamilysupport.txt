@@ -1,18 +1,19 @@
-\b(active in (her|his) (church|mosque|religious|synagogue|temple)|attend(s|ing)? (church|community activities?|temple|mosque|synagogue)|visit(s|ing)? (church|family)|go(es|ing)? to church)\b
-\b(close (friend(s)?|relationship with)|mutual friends?|friend of a friend|reported having friends?|reports having friends?)\b
-\b(has|have)\s(a (good friend|special person)|close (friend|friends)|many friend(s)?|lots of friend(s)?|strong social support|strong (family|social) network)\b
-\b(live(s)?|moved) with friend(s)?|stay(ing)? (at|with) (a )?friend(’s?)?\b
-\b(increased social (activity|ization)|social activity|social (network|support network|support))\b
-\b(see(s)? friend(s)?|socialize(s|d)?|popular|was popular|family (connection|meeting|visit(s)?)|friend connection|club house|commune|community activity|domiciled with friend(s)?)\b
-\b(denies having|does not have|doesn’t have)\s(no|any|many)?\s?(friends?|family|close (family|friends?)|support network|social contacts?)\b
-\b(few (friends|social contacts)|0 friends)\b
-\b(lack of (a )?support network|increase social activity|wants to make new friends)\b
-\b(has no (family|friends?|social activities)|does not socialize|no family|no friends)\b
-\b(alone in the world|aloneness|experiencing feelings of isolation|feel(s|ing)? (isolated|alone|isolate)|feeling of not having anyone|feelings of isolation|feels all alone|loneliness|lonely|sense of isolation)\b
-\b(absence of|lacking|lacks|limited|deficit in|no)\s(emotional support|social connections?|friends?|family support)\b
-\b(not|does(n’t| not)?)\s(have|get|feel comfortable sharing|confide in)\s(friend(s)?|family|support network|someone to talk to)\b
-\b(needs|in need of|to increase)\s(emotional support|social connections?|friendship|family interaction)\b
-\b(can(’t|not)?|does(n’t| not)?|unable to|will not)\s(talk to|confide in|speak openly|share personal)\s?(issues|problems|concerns|emotions|feelings)\b
-\b(no one|nobody)\s(to (confide in|talk to|share personal|speak openly|understand(s)?)|cares about them)\b
-\b(prevents (her|him) from confiding|reluctance to confide in others|will not confide in)\b
-\b(no one (understands|who truly understands|for emotional support|to rely on))\b
+\b(husband|roommate|daughters?|mother|family|parents?)\s(is|are|has|have|does not|doesn't|denies|feels|reports|expressed|seeks|wants|needs|struggles with|experiencing|coping with|frustrated by|saddened by|in conflict with|having issues with)\s(argumentative|conflict|problems?|issues?|neglect|frustration|sadness|grief|loss|burnout|support|supervision|abuse|difficult(y|ies)|barrier|emotional distress|lack of (support|supervision|emotional support)|limited (support|activities|resources)|negative comments|not supported|strained relationship|strained interaction|strained dynamic|strained communication)\b
+
+\b(feels|experiences|reports|expressed|denies having|does not have|doesn’t have|lacks|needs|seeks)\s(no|any|many)?\s?(friends?|family|close (family|friends?)|support network|social contacts?|someone to talk to|emotional support|connection|interaction)\b
+
+\b(denies having|does not have|doesn’t have|not feeling well supported|not supported by)\s(no|any|many)?\s?(friends?|family|support|connection|social network|community|resources|assistance|supervision|family support)\b
+
+\b(feels|experiences|reports|expressed|denies|suffers from|struggles with|coping with)\s?(neglect|emotional distress|burnout|sadness|grief|loss|unsupported|isolated|alone|lonely|lack of supervision|limited family interaction|strained relationship|strained family dynamic|relational problem)\b
+
+\b(conflict|issues|problems|strained relationship|strained communication|arguments|frequent disagreements|frequent arguments|difficult relationship|difficult interaction|negative relationship|dysfunctional relationship)\s(with|between)\s?(husband|roommate|daughters?|mother|family|parents?)\b
+
+\b(frequent arguments|constant conflicts|ongoing disputes|persistent disagreements|recurrent issues|repeated tensions|negative interactions|toxic relationship|strained dynamic|household conflict|family tension|family issues)\b
+
+\b(grieving the loss of|mourning the death of|struggling with the loss of|coping with the death of|lost a loved one|recently lost|dealing with grief)\b
+
+\b(doctor’s orders not supported by|following doctor’s orders is not supported by|medical guidance not respected by|not supported in following treatment|lack of support for medical decisions|not encouraged to follow medical advice)\b
+
+\b(feels unsupported at home|feels neglected by family|does not feel supported by family|lack of family support|not receiving emotional support|not receiving help at home|not getting the support needed|family is unsupportive)\b
+
+\b(frequent arguments are negatively impacting|arguments affecting health|conflicts causing distress|relationship stress is affecting well-being|negative interactions impacting emotional health|emotional strain from family issues|mental burden from conflict)\b

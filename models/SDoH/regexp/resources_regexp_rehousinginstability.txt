@@ -1,21 +1,18 @@
-\b(need(s\S?|ed)?|request(ed)?|help(ed)?|assist(ed|ance)?|discuss(ed)?|call(ed)?|referral|through)(\s+\S+){0,10} (housing|landlord|(landlord\/)?rental property)\b
+\b(need(s\S?|ed)?|request(ed)?|help(ed|ance|ing)?|assist(ed|ance)?|discuss(ed)?|call(ed)?|referral|through)(\s+\S+){0,10}\s(housing|landlord|(landlord\/)?rental property|apartment)\b
 \b(undomiciled|homeless( shelters?|ness)?|temporary housing|transitional housing|emergency shelter|living on the streets|residential institution problems|sleeping (outside|outdoors)|evicted|vulnerably housed)\b
-\b((house|home)less(ness)?|un(housed|shelter(ed)?)|unsheltered homelessness|lack of (shelter|housing)|lacking (shelter|housing)|housing lack|homeless( (family|shelter(s)))?)\b
-\b(families|street|shelter)\shomeless\b
-\b(kick(ed)? out|moved? out|los(t|ing) (housing|a home|shelter|residence)|risk of eviction|facing eviction|eviction notice)\b
-\b(difficulty (finding|securing|keeping|affording|paying for|obtaining|maintaining)\s(housing|a home|shelter|rental property|accommodation))\b
-\b(dorothy day|catholic charities|section 8 housing|free rent|evicted)\b
-\b(liv(ing|es) in)(\s+\S+){0,5} (motel|van|tent|car|encampment|shelter|residential institution)\b
-\b(sleeping (outside|outdoors|rough)|temporarily staying|itinerant|couch surfing|lodgers|unstabl(e|y) hous(e|ing)|in(adequate|stable) housing|vulnerably housed)\b
-\bhousing (program|needs)\b
+\b((house|home)less(ness)?|un(housed|shelter(ed)?)|unsheltered homelessness|lack of (stable )?(shelter|housing|apartment)|lacking (stable )?(shelter|housing|apartment)|housing lack|homeless( (family|shelter(s)))?)\b
+\b(kick(ed)? out|los(t|ing) (housing|a home|shelter|apartment|residence (due to|following|from|after|eviction|financial difficulties|instability|foreclosure))|risk of eviction|facing eviction|eviction notice|waiting for housing|waiting for apartment|cannot get an apartment)\b
+\b(difficulty (finding|securing|keeping|affording|paying for|obtaining|maintaining)\s(housing|a home|shelter|rental property|accommodation|apartment))\b
+\b(dorothy day|catholic charities|section 8 housing|free rent|evicted|halfway house)\b
+\b(liv(ing|es) in)(\s+\S+){0,5} (motel|van|tent|car|encampment|shelter|residential institution|apartment)\b
+\b(sleeping (outside|outdoors|rough)|temporarily staying|itinerant|couch surfing|lodgers|unstabl(e|y) hous(e|ing)|in(adequate|stable) housing|vulnerably housed|recovery housing|recovery residence)\b
 \bhouse(\s+\S+){0,5} foreclosed\b
 homelessness risk
-(shelter|tenure|housing|accommodation|dwelling|domicile|residence|living situation)\sinstability
+\b((living situation|shelter) (is (unstable|uncertain|precarious|insecure|risky|unsafe|temporary|at risk)|concerns|challenges|problems))\b
 (abode|shelter)\suncertainty
-(residence|housing|accommodation)\svulnerability
-(home|lodging|housing|place)\sinsecurit(y|ies)
+(residence|housing|accommodation)\s(vulnerability|instability|insecurity)
+(home|lodging|housing|place)\s(insecurit(y|ies))
 (tenancy|residen(ce|tial))\suncertainty
 instability on housing
 \b(live(s|d)?|living|stay(s|ed|ing)?) on (the )?street(s?)\b
-recovery housing
-recovery residence
+low income housing

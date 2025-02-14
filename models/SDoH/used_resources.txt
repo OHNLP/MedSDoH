@@ -9,7 +9,6 @@
 ./regexp/resources_regexp_reenvironmentalexposure.txt
 ./regexp/resources_regexp_refinancialstrain.txt
 ./regexp/resources_regexp_refoodinsecurity.txt
-./regexp/resources_regexp_regenderidentity.txt
 ./regexp/resources_regexp_regeographiclocation.txt
 ./regexp/resources_regexp_rehealthliteracy.txt
 ./regexp/resources_regexp_rehomeandsocialenvironment.txt
@@ -19,9 +18,6 @@
 ./regexp/resources_regexp_reoccupationalnightshift.txt
 ./regexp/resources_regexp_rephysicalactivity.txt
 ./regexp/resources_regexp_rephysicalsexualabuse.txt
-./regexp/resources_regexp_reraceorethnicity.txt
-./regexp/resources_regexp_resexatbirth.txt
-./regexp/resources_regexp_resexualorientation.txt
 ./regexp/resources_regexp_resmokingstatus.txt
 ./regexp/resources_regexp_resocialfamilysupport.txt
 ./regexp/resources_regexp_resupplies.txt

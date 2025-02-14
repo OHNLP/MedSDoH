@@ -5,15 +5,10 @@
 \b(assist(ing)?|help(ing)?|difficult|eligibility|barriers?|struggl(es?|ing)|anxiet(ies|y))(\s+\S+){0,15}\s(finances?|financial(\s+(resources?|assistance))?|clothing|coverage|affording?)\b
 
 // Insufficient or limited income
-\b(decreased|insufficient|not enough|less|fixed|limited|reduction|no|expenses exceed)(\s+\S+){0,5}\s(income)\b
+\b(decreased|insufficient|not enough|less|fixed|limited|reduction|no|expenses exceed|does not have|doesn'?t have|lack of)(\s+\S+){0,5}\s(income)\b
 
 // Inability to afford costs, bills, or services
 \b((can|could)?\s?not|(un)?able to|not have|hard|options?|concern(s|ed)?|difficult(y|ies)|worr(y|ied)|ow(es|ing)?|inability|high)(\s+\S+){0,5}\s(afford(ing)?|pay|bill(s)?|cost(s)?|business|money)\b
-
-// Employment challenges and instability
-\b(los(s|t|ing)|quit(s|ing)?|find(s|ing)?|instability|difficult(y|ies)|unable to|concern(ed)?|barriers?)(\s+\S+){0,4}\s(employment|jobs?|out of work(ing)?)\b
-\b(unemploy(ed|ment)|job resources?)\b
-\b(can)?\s?not(\s+\S+){0,2}\s(employed)\b
 
 // Repossession or loss of assets (e.g., car)
 \b(car(\s+\S+){0,3}\s(re(\S| )?possessed|taken)|taken(\s+\S+){0,3}\s(car))\b
@@ -36,7 +31,8 @@
 
 // Miscellaneous patterns
 \bno hpe\b
-\b(try(ing)? to|hope to)\s(obtain|get)(s|t?ing)?(\s+\S+){0,4}\s(employment|jobs?|out of work(ing)?)\b
 \bconnect(ing)? with(\s+\S+){0,4}\s(social|health)\swork(er)?\b
 
-\b(SSI|SSD|social security (disability|benefits)|financial (assistance|difficult(y|ies)|burden|constraints?|hardship|struggles?|problems?|instability|insecurity)|monetary (assistance|issues|problems?|challenges)|economic (difficulty|hardship|barrier|stress|constraint)|unable to afford|cost(s)? that (inhibit|prevent|restrict) (access|ability)|low income|waiting for benefits|public assistance|welfare|debt|expense(s)? exceed(s)? income|income limitation(s)?)\b
+\b(SSI|SSD|S\.S\.I\.|S\.S\.D\.|social security (disability|benefits)|receives (SSI|SSD)|qualifies for (SSI|SSD)|on (SSI|SSD)|having (SSI|SSD)|financial (assistance|difficult(y|ies)|burden|constraints?|hardship|struggles?|problems?|instability|insecurity)|monetary (assistance|issues|problems?|challenges)|economic (difficulty|hardship|barrier|stress|constraint)|unable to afford|cost(s)? that (inhibit|prevent|restrict) (access|ability)|low income|waiting for benefits|public assistance|welfare|debt|expense(s)? exceed(s)? income|income limitation(s)?)\b
+\b(Harris Health Gold Card|BakerRipley)\b
+FAP letter

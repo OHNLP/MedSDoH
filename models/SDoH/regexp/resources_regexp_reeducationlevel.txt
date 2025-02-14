@@ -1,1 +1,1 @@
-\b(\d+(th|rd|nd|st)\sgrade|neither.*high school degree|never had consistent schooling|dropped out|eventually dropped out|[^\w\s]?\d+(th|rd|nd|st)? grade\b)\b
+\b(\d+(th|rd|nd|st)\sgrade|neither.*high school degree|never had consistent schooling|dropped out|eventually dropped out|[^\w\s]?\d+(th|rd|nd|st)? grade|in (nursing|online) school|enrolled in (nursing|online) school|middle school|advanc(e|ing|ed) to (\d+(th|rd|nd|st)\sgrade|next grade))\b

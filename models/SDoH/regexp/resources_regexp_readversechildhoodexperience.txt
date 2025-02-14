@@ -1,12 +1,1 @@
-child abuse
-sexual abuse
-child neglect
-childhood trauma
-child protective service
-physical abuse
-psychological abuse
-verbal abuse
-cps supervisor
-cps report
-cps worker
-cps investigation
+(?i)\b(child abuse|sexual abuse|child neglect|childhood trauma|child protective service|physical abuse|psychological abuse|verbal abuse|cps (supervisor|report|worker|investigation|e-report|case worker)|victim of bullying|bullying at school|bullied|teased|witness(ed|ing)? (domestic violence|abuse|neglect))\b
