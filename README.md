@@ -46,3 +46,5 @@ For manual annotation or reviewing annotation results, use [MedTator](https://me
 Run the SDoH tagger using the provided [Jupyter notebook](https://github.com/OHNLP/SDoHTagger/blob/ce84a921b63a89b66fe1c6da0f9e630a4e29fbbf/notebooks/run_model.ipynb).
 
 ---
+
+## Contact: jaerong.ahn@uth.tmc.edu
