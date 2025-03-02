@@ -16,7 +16,16 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License"
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "flake8",
+    "pre-commit"
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -34,4 +43,3 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-reportMissingImports = true

@@ -11,9 +11,6 @@ dependencies:
   - pandas
   - matplotlib
   - numpy
-  - black
-  - flake8
-  - isort
   - ipykernel
   - requests
   - pip:
