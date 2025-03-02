@@ -3,9 +3,9 @@ requires = ["setuptools>=62.0", "wheel>=0.37"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sdoh_tagger"
+name = "med_sdoh"
 version = "0.0.1"
-description = "SDoH Tagger"
+description = "MedSDOH: Medical Social Determinants of Health"
 authors =  [
   { name = "Jaerong Ahn", email = "jaerong.ahn@uth.tmc.edu" },
   { name = "Sunyang Fu", email = "sunyang.fu@uth.tmc.edu" },

@@ -1,4 +1,4 @@
-<!ENTITY name "SDoH_Tagger">
+<!ENTITY name "MedSDoH">
 
 <!ELEMENT Adverse_Childhood_Experience ( #PCDATA ) >
 <!ATTLIST Adverse_Childhood_Experience certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >

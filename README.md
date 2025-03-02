@@ -24,7 +24,7 @@ It is recommended to use a [Conda virtual environment](https://docs.conda.io/en/
 2. Activate the newly created environment:
 
    ```bash
-   conda activate sdoh_tagger
+   conda activate med_sdoh
    ```
 
 ---
