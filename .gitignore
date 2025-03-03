@@ -164,6 +164,9 @@ cython_debug/
 #data
 data/
 .DS_Store
+*.csv
+*.xlsx
+*.numbers
 
 # model files
 *.jar

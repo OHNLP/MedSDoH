@@ -3,9 +3,9 @@ requires = ["setuptools>=62.0", "wheel>=0.37"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sdoh_tagger"
+name = "med_sdoh"
 version = "0.0.1"
-description = "SDoH Tagger"
+description = "MedSDOH: Medical Social Determinants of Health"
 authors =  [
   { name = "Jaerong Ahn", email = "jaerong.ahn@uth.tmc.edu" },
   { name = "Sunyang Fu", email = "sunyang.fu@uth.tmc.edu" },
@@ -16,7 +16,16 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License"
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "flake8",
+    "pre-commit"
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
@@ -34,4 +43,3 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-reportMissingImports = true

@@ -1,7 +1,7 @@
 # conda env create -f environment.yml
 # conda env update -f environment.yml
 
-name: sdoh_tagger
+name: med_sdoh
 channels:
   - defaults
   - conda-forge
@@ -11,9 +11,6 @@ dependencies:
   - pandas
   - matplotlib
   - numpy
-  - black
-  - flake8
-  - isort
   - ipykernel
   - requests
   - pip:
