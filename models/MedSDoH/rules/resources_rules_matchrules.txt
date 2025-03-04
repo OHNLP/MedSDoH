@@ -49,3 +49,5 @@ RULENAME="cm_r_supplies",REGEXP="(?i)\b%resupplies\b",LOCATION="",NORM="Supplies
 RULENAME="cm_r_technicalliteracy",REGEXP="(?i)\b%retechnicalliteracy\b",LOCATION="",NORM="Technical_Literacy"  
 
 RULENAME="cm_r_transportationbarrier",REGEXP="(?i)\b%retransportationbarrier\b",LOCATION="",NORM="Transportation_Barrier"
+
+RULENAME="rem_r_templateremoval",REGEXP="(?i)\b%retemplateremoval",LOCATION="",NORM="REMOVE"

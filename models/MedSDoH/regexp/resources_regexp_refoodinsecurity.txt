@@ -17,4 +17,7 @@
 \bno(r the)?\sfood\b
 \bconnected to\s(WIC|SNAP|EBT|food stamps?)\b
 \bpoverty\b
-\b(food insecurity|lack of food access|insufficient food supply|inadequate nourishment|uncertain food supply|limited access to (nutritional|safe)?\s?food|lack of food|inability to (purchase|buy) food|consistent hunger|food insecure|low food security|reduced access to food|difficulties accessing food|inadequate food access|nutritional uncertainty|dietary insufficiency|lack of sustenance|hunger crisis|food vulnerability|insufficient nourishment|limited food availability|nutritional deprivation|insecure food supply|hunger insecurity|irregular food access|dietary insecurity|food shortage|undernourishment|food scarcity|nutritional instability|food poverty)\b
+\b(food insecurity|lack of food access|insufficient food supply|inadequate nourishment|uncertain food supply|limited access to (?:nutritional|safe|fresh)?\sfood |barrier to food access|difficulty obtaining food|obstacles to getting food|lack of food|inability to (purchase|buy) food|consistent hunger|food insecure|low food security|reduced access to food|difficulties accessing food|inadequate food access|nutritional uncertainty|dietary insufficiency|lack of sustenance|hunger crisis|food vulnerability|insufficient nourishment|limited food availability|nutritional deprivation|insecure food supply|hunger insecurity|irregular food access|dietary insecurity|food shortage|undernourishment|food scarcity|nutritional instability|food poverty|limited access to fresh (food|vegetables|produce))\b
+
+// Account for typos
+SSDandSNAP/TANF

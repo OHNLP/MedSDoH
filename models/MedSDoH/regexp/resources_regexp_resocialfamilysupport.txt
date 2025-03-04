@@ -1,16 +1,14 @@
-\b(husband|roommate|daughters?|mother|family|parents?)\s(is|are|has|have|does not|doesn't|denies|feels|reports|expressed|seeks|wants|needs|struggles with|experiencing|coping with|frustrated by|saddened by|in conflict with|having issues with)\s(argumentative|conflict|problems?|issues?|neglect|frustration|sadness|grief|loss|burnout|support|supervision|abuse|difficult(y|ies)|barrier|emotional distress|lack of (support|supervision|emotional support)|limited (support|activities|resources)|negative comments|not supported|strained relationship|strained interaction|strained dynamic|strained communication)\b
-
-\b(feels|experiences|reports|expressed|denies having|does not have|doesn’t have|lacks|needs|seeks)\s(no|any|many)?\s?(friends?|family|close (family|friends?)|support network|social contacts?|someone to talk to|emotional support|connection|interaction)\b
+\b(husband|roommate|daughters?|mother|family|parents?)\s(is|are|has|have|does not|doesn't|denies|feels|reports|expressed|seeks|wants|needs|struggles with|experiencing|coping with|frustrated by|saddened by|in conflict with|having issues with)\s(argumentative|conflict|problems?|issues?|neglect|frustration|sadness|grief|loss|burnout|support|supervision|abuse|difficult(y|ies)|emotional distress|lack of (support|supervision|emotional support)|limited (support|activities|resources)|negative comments|not supported|strained relationship|strained interaction|strained dynamic|strained communication)\b
 
 \b(denies having|does not have|doesn’t have|not feeling well supported|not supported by)\s(no|any|many)?\s?(friends?|family|support|connection|social network|community|resources|assistance|supervision|family support)\b
 
-\b(feels|experiences|reports|expressed|denies|suffers from|struggles with|coping with)\s?(neglect|emotional distress|burnout|sadness|grief|loss|unsupported|isolated|alone|lonely|lack of supervision|limited family interaction|strained relationship|strained family dynamic|relational problem)\b
+\b(feels|experiences|reports|expressed|denies|suffers from|struggles with|coping with)\s?(neglect|emotional distress|burnout|sadness|grief|loss|unsupported|isolated|alone|lonely|lack of supervision|limited family interaction|strained relationship|strained family dynamic|relational problem)(\s(?:with|due to|because of|from)\s(husband|roommate|daughters?|mother|family|parents?|social network|support system|community|friends?|caregiver|supervision|resources|assistance))?\b
 
 \b(conflict|issues|problems|strained relationship|strained communication|arguments|frequent disagreements|frequent arguments|difficult relationship|difficult interaction|negative relationship|dysfunctional relationship)\s(with|between)\s?(husband|roommate|daughters?|mother|family|parents?)\b
 
 \b(frequent arguments|constant conflicts|ongoing disputes|persistent disagreements|recurrent issues|repeated tensions|negative interactions|toxic relationship|strained dynamic|household conflict|family tension|family issues)\b
 
-\b(grieving the loss of|mourning the death of|struggling with the loss of|coping with the death of|lost a loved one|recently lost|dealing with grief)\b
+\b(grieving the loss of|mourning the death of|struggling with the loss of|coping with the death of|lost a loved one|dealing with grief)\b
 
 \b(doctor’s orders not supported by|following doctor’s orders is not supported by|medical guidance not respected by|not supported in following treatment|lack of support for medical decisions|not encouraged to follow medical advice)\b
 
