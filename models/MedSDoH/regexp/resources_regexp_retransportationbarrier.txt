@@ -23,4 +23,7 @@
 \b(report(ed|s)?|experience(d|s)?|mention(ed|s)?|express(ed|es)?|state(d|s)?)\s(issues?|problems?|concerns?)\s(with|about)?\s(transportation|ride|vehicle|car|commute|travel)\b
 
 // 9. MetroLift and Medicaid Transportation (Case-Insensitive)
-(?i)\b(Metro\s?Lift|MetroLift|medicaid transportation)\b
+\b(Metro\s?Lift|MetroLift|medicaid transportation)\b
+
+MetroLiftandMedicaid
+Medicaid Transportation

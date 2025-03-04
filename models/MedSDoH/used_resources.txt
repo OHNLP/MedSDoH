@@ -23,3 +23,4 @@
 ./regexp/resources_regexp_resupplies.txt
 ./regexp/resources_regexp_retechnicalliteracy.txt
 ./regexp/resources_regexp_retransportationbarrier.txt
+./regexp/resources_regexp_retemplateremoval.txt

@@ -1,0 +1,87 @@
+housing/lodging referral comments:
+catholic charities:
+logding/housing concerns:
+housing type:
+activating events:
+activities:
+any bullying at school?:
+assigned cps case worker:
+been diagnosed with or experienced symptoms of substance use/abuse?:
+been in treatment due to substance use/abuse?:
+bullying at school: 
+bullying at school?: no
+cigarettes: no
+current allegations of child abuse:
+domestic violence abuse history:
+domestic violence history:
+drug past use: 
+drug use:
+drugs:
+due to substance abuse:
+employment:
+ever been in treatment due to substance use/abuse?:
+exercise:
+extra-curricular activities:
+fear of current or ex partner:
+financial concerns/work: 
+financial concerns: 
+food/financial concerns:
+govermental assistance:
+grade:
+has the parent been employed with current company:
+has the patient been diagnosed with or experienced symptoms of substance use/abuse?:
+has the patient ever been in treatment due to substance use/abuse?:
+have there been legal consequences due to substance abuse:
+history of child abuse:
+history of domestic violence:
+history of physical/emotional/sexual abuse:
+history of significant relationships/current relationship:
+interpersonal violence history:
+interpreter id:
+mother's education level:
+other financial concerns:
+partner's education level:
+patient ever been in treatment due to substance use/abuse?:
+physical abuse first noticed by (name):
+physical activity:
+physically abused:
+potential financial barriers:
+romantic relationships:
+school name:
+second parent(s) job title: 
+sexual abuse physical symptoms:
+sexual abuse:
+smokeless tobacco:
+smoking status:
+spouse name:
+spouse/live-in partner:
+stress, or change:
+substance abuse:
+substance belong to whom:
+substance history:
+substance use/abuse?:
+substance use:
+suspected sexual abuse: 
+tch financial assistance/charity:
+techniques used to cope with loss, stress, or change:
+temporary housing: no
+trauma symptoms:
+type of alleged abuse:
+type of interpreter:
+type of suspected sexual abuse:
+unable to pay for housing in the last year:
+unstable housing in the last year:
+urine drug screen:
+utility assistance:
+vaping use:
+verbalized understanding and agreement with plan:
+when treatment occurred:
+when was the last attempt?:
+who provided the treatment (if known): 
+will transplant cause financial hardship:
+with loss, stress, or change:
+with or experienced symptoms of substance use/abuse?:
+witnessed ipv as a child:
+worried about losing housing:
+worried about running out of food in the last year:
+yes, sports: 
