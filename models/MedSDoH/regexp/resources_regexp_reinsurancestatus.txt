@@ -4,4 +4,7 @@
 \b(not|neither)(\s+\S+){0,5}\s(ha(d|ving)|covered by)(\s+\S+){0,2}\s(insurance|coverage)\b
 \b(insur(ance|er)|job)(\s+\S+){0,10}\s(lapsed?|end(ed)?|den(y|ied)|lost|expired)\b
 \b(concerns?(\s+\S+){0,2}\s(insurance|coverage)|(insurance|coverage)\sconcerns?)\b
-andMedicare
+medicaid
+medicare
+losing insurance
+amerigroup

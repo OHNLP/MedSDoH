@@ -1,6 +1,8 @@
 \b(need(s\S?|ed)?|request(ed)?|help(ed|ance|ing)?|assist(ed|ance)?|discuss(ed)?|call(ed)?|referral|through)(\s+\S+){0,10}\s(housing|landlord|(landlord\/)?rental property|apartment)\b
 \b(undomiciled|homeless( shelters?|ness)?|temporary housing|transitional housing|emergency shelter|living on the streets|residential institution problems|sleeping (outside|outdoors)|evicted|vulnerably housed)\b
-\b((house|home)less(ness)?|un(housed|shelter(ed)?)|unsheltered homelessness|lack of (stable )?(shelter|housing|apartment)|lacking (stable )?(shelter|housing|apartment)|housing lack|homeless( (family|shelter(s)))?)\b
+
+\b((house|home)less(ness)?|un(housed|shelter(ed)?)|unsheltered homelessness|lack of (stable )?(shelter|housing|apartment)|lacking (stable )?(shelter|housing|apartment)|not having stable housing|housing lack|homeless( (family|shelter(s)))?)\b
+
 \b(kick(ed)? out|los(t|ing) (housing|a home|shelter|apartment|residence (due to|following|from|after|eviction|financial difficulties|instability|foreclosure))|risk of eviction|facing eviction|eviction notice|waiting for housing|waiting for apartment|cannot get an apartment)\b
 \b(difficulty (finding|securing|keeping|affording|paying for|obtaining|maintaining)\s(housing|a home|shelter|rental property|accommodation|apartment))\b
 \b(dorothy day|catholic charities|section 8 housing|free rent|evicted|halfway house)\b
@@ -15,4 +17,5 @@ homelessness risk
 (tenancy|residen(ce|tial))\suncertainty
 instability on housing
 \b(live(s|d)?|living|stay(s|ed|ing)?) on (the )?street(s?)\b
-low income housing
+low[-\s]income housing
+shelter(s?)

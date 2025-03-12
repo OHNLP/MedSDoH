@@ -1,1 +1,4 @@
-\b(not employed|no longer working( part-time)?|on disability|looking for employment|seeking employment|unemployed|without a job|out of work|jobless|laid off|unable to work|between jobs|retired|employed( full-?time| part-?time)?|unemployment benefits|unemployed for (\d+ )?(year|month|week)s?|need(s|ed)? assistance with (finding|securing|obtaining) a job|help with (job search|employment|finding work|career support))\b
+(not employed|no longer working( part-time)?|on disability|looking for employment|seeking employment|unemployed|without a job|out of work|jobless|laid off|unable to work|between jobs|retired|employed( full-?time| part-?time)?|unemployment benefits|unemployed for (\d+ )?(year|month|week)s?|need(s|ed)? assistance with (finding|securing|obtaining) a job|help with (job search|employment|finding work|career support))
+unemployment
+unemployed
+not employed

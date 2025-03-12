@@ -24,6 +24,7 @@
 
 // 9. MetroLift and Medicaid Transportation (Case-Insensitive)
 \b(Metro\s?Lift|MetroLift|medicaid transportation)\b
-
-MetroLiftandMedicaid
-Medicaid Transportation
+metrolift
+metro lift
+medicaid transportation
+need(s?)[\s]*transportation

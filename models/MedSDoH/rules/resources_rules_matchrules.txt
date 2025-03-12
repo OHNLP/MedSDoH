@@ -10,7 +10,7 @@ RULENAME="cm_r_employmentstatus",REGEXP="(?i)\b%reemploymentstatus\b",LOCATION="
 
 RULENAME="cm_r_environmentalexposure",REGEXP="(?i)\b%reenvironmentalexposure\b",LOCATION="",NORM="Environmental_Exposure"
 
-RULENAME="cm_r_financialstrain",REGEXP="(?i)\b%refinancialstrain\b",LOCATION="",NORM="Financial_Strain"  
+RULENAME="cm_r_financialstrain",REGEXP="(?i)%refinancialstrain",LOCATION="",NORM="Financial_Strain"  
 
 RULENAME="cm_r_foodinsecurity",REGEXP="(?i)\b%refoodinsecurity\b",LOCATION="",NORM="Food_Insecurity"  
 
@@ -22,9 +22,9 @@ RULENAME="cm_r_healthliteracy",REGEXP="(?i)\b%rehealthliteracy\b",LOCATION="",NO
 
 RULENAME="cm_r_homeandsocialenvironment",REGEXP="(?i)\b%homeandsocialenvironment\b",LOCATION="",NORM="Home_and_Social_Environment"
 
-RULENAME="cm_r_housinginstability",REGEXP="(?i)\b%rehousinginstability\b",LOCATION="",NORM="Housing_Instability"  
+RULENAME="cm_r_housinginstability",REGEXP="(?i)%rehousinginstability",LOCATION="",NORM="Housing_Instability"  
 
-RULENAME="cm_r_insurancestatus",REGEXP="(?i)\b%reinsurancestatus\b",LOCATION="",NORM="Insurance_Status"  
+RULENAME="cm_r_insurancestatus",REGEXP="(?i)%reinsurancestatus",LOCATION="",NORM="Insurance_Status"  
 
 RULENAME="cm_r_maritalstatus",REGEXP="(?i)\b%remaritalstatus\b",LOCATION="",NORM="Marital_Status"  
 
@@ -48,6 +48,6 @@ RULENAME="cm_r_supplies",REGEXP="(?i)\b%resupplies\b",LOCATION="",NORM="Supplies
 
 RULENAME="cm_r_technicalliteracy",REGEXP="(?i)\b%retechnicalliteracy\b",LOCATION="",NORM="Technical_Literacy"  
 
-RULENAME="cm_r_transportationbarrier",REGEXP="(?i)\b%retransportationbarrier\b",LOCATION="",NORM="Transportation_Barrier"
+RULENAME="cm_r_transportationbarrier",REGEXP="(?i)%retransportationbarrier",LOCATION="",NORM="Transportation_Barrier"
 
 RULENAME="rem_r_templateremoval",REGEXP="(?i)\b%retemplateremoval",LOCATION="",NORM="REMOVE"
