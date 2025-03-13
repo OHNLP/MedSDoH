@@ -42,7 +42,7 @@ mild~|~pre~|~poss~|~1
 will be considered~|~post~|~hypo~|~1
 would be considered~|~post~|~hypo~|~1
 should be considered~|~post~|~hypo~|~1
-considered~|~pre~|~hypo~|~1
+//considered~|~pre~|~hypo~|~1
 consider~|~pre~|~hypo~|~1
 consideration~|~pre~|~hypo~|~1
 should consider~|~pre~|~hypo~|~1
@@ -57,10 +57,10 @@ candidate for~|~pre~|~hypo~|~1
 put off~|~pre~|~hypo~|~1
 vs~|~pre~|~hypo~|~1
 discuss~|~pre~|~hypo~|~1
-discussed~|~pre~|~hypo~|~1
+//discussed~|~pre~|~hypo~|~1
 discussion~|~pre~|~hypo~|~1
 versus~|~pre~|~hypo~|~1
-referred~|~pre~|~hypo~|~1
+//referred~|~pre~|~hypo~|~1
 advised~|~pre~|~hypo~|~1
 chance~|~pre~|~hypo~|~1
 risky~|~post~|~poss~|~1
@@ -128,7 +128,7 @@ concern about~|~pre~|~poss~|~1
 concerned about~|~pre~|~poss~|~1
 would~|~pre~|~poss~|~1
 could have~|~pre~|~poss~|~1
-may have~|~pre~|~poss~|~1
+//may have~|~pre~|~poss~|~1
 raise the question of~|~pre~|~poss~|~1
 raise the question for~|~pre~|~poss~|~1
 raises the question of~|~pre~|~poss~|~1
@@ -167,7 +167,7 @@ review the use~|~pre~|~poss~|~1
 reviewed~|~pre~|~poss~|~1
 likely~|~post~|~poss~|~1
 will have~|~pre~|~hypo~|~1
-may be~|~pre~|~poss~|~1
+//may be~|~pre~|~poss~|~1
 for excluding~|~pre~|~poss~|~1
 potentially represent~|~pre~|~poss~|~1
 possibility of~|~pre~|~poss~|~1
@@ -460,8 +460,8 @@ is ruled out~|~post~|~neg~|~1
 is to be ruled out~|~post~|~poss~|~1
 is to be ruled out for~|~pre~|~poss~|~1
 isn't~|~pre~|~neg~|~1
-lack of~|~pre~|~neg~|~1
-lacked~|~pre~|~neg~|~1
+//lack of~|~pre~|~neg~|~1
+//lacked~|~pre~|~neg~|~1
 may be ruled out~|~post~|~poss~|~1
 may be ruled out for~|~pre~|~poss~|~1
 discussed~|~pre~|~poss~|~1

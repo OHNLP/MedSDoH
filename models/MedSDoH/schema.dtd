@@ -155,12 +155,12 @@
 <!ATTLIST Smoking_Status exclusion ( yes | no ) #IMPLIED "no" >
 <!ATTLIST Smoking_Status comment CDATA "" >
 
-<!ELEMENT Social_Family_Support  ( #PCDATA ) >
-<!ATTLIST Social_Family_Support  certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
-<!ATTLIST Social_Family_Support  status ( history | present ) #IMPLIED "present" >
-<!ATTLIST Social_Family_Support  experiencer ( patient | other ) #IMPLIED "patient" >
-<!ATTLIST Social_Family_Support  exclusion ( yes | no ) #IMPLIED "no" >
-<!ATTLIST Social_Family_Support  comment CDATA "" >
+<!ELEMENT Social_Family_Support ( #PCDATA ) >
+<!ATTLIST Social_Family_Support certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
+<!ATTLIST Social_Family_Support status ( history | present ) #IMPLIED "present" >
+<!ATTLIST Social_Family_Support experiencer ( patient | other ) #IMPLIED "patient" >
+<!ATTLIST Social_Family_Support exclusion ( yes | no ) #IMPLIED "no" >
+<!ATTLIST Social_Family_Support comment CDATA "" >
 
 <!ELEMENT Supplies ( #PCDATA ) >
 <!ATTLIST Supplies certainty ( confirmed | hypothetical | possible | negated ) #IMPLIED "confirmed" >
