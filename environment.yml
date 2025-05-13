@@ -15,6 +15,7 @@ dependencies:
   - requests
   - pip:
       - beautifulsoup4
+      - lxml
       - python-dotenv
       - pyodbc
       - -e .
