@@ -1,284 +1,139 @@
-import csv
-import glob
-from os.path import expanduser
+import pathlib
+from collections import defaultdict
 
+import numpy as np
 import pandas as pd
-from bs4 import BeautifulSoup
-
-
-class Corpus:
-    def __init__(self, corpusDir, format="mae"):
-        self.dir = corpusDir
-        self.soup = {}
-        if format == "mae":
-            self.files = glob.glob(corpusDir + "/*.xml")
-            self.load_MAE()
-        if format == "brat":
-            self.files = glob.glob(corpusDir + "/*.ann")
-            self.load_Brat()
-
-    def load_MAE(self, warn_and_continue=False):
-        for p in self.files:
-            name = p.split("/")[-1]
-            ## standard:
-            # name = p.split('/')[-1].split('_')[0]+'.xml'
-            try:
-                fp = open(p).read()
-                soup = BeautifulSoup(fp, "xml")
-                self.soup[name] = soup
-            except:
-                print("Error for file")
-
-    def load_Brat(self, warn_and_continue=False):
-        for p in self.files:
-            ann_list = self.read_file_list(p)
-            # name= '_'.join(p.split('/')[-1].split('_')[:4])
-            ## standard:
-            name = p.split("/")[-1].split("_")[0] + ".ann"
-
-    def read_file_list(self, indir, d):
-        opt_notes = []
-        with open(indir, "rU") as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=d)
-            for row in spamreader:
-                opt_notes += [row]
-        return opt_notes
+from med_sdoh.utils import Corpus, compute_classification_metrics, parse_dtd_schema
 
 
 class Evaluation:
-    def __init__(self, ann1Corpus, ann2Corpus, dtdDir, overlap_ratio):
-        self.labels = {}
-        self.schemaElementsAttr = self.load_dtd(dtdDir)
-        self.spanCorpus, self.txtCorpus = self.get_spans(ann1Corpus, ann2Corpus)
-        self.cpLevelOutput = []
+    def __init__(
+        self,
+        model_corpus: Corpus,
+        gold_standard_corpus: Corpus,
+        schema_path: str | pathlib.Path,
+        overlap_ratio=0.5,
+        excluded_concepts: list[str] = [],
+    ):
+
+        self.schema = parse_dtd_schema(schema_path)
+        self.span, self.text = self._get_spans(model_corpus, gold_standard_corpus)
         self.overlap_ratio = overlap_ratio
+        self.excluded_concepts = excluded_concepts
+        self._micro_avg = None
+        self._macro_avg = None
+        self._errors = None
 
-    def load_dtd(self, dtdDir):
+    @property
+    def micro_avg(self) -> dict:
+        if self._micro_avg is None:
+            self._micro_avg = self._get_micro_avg()
+        return self._micro_avg
 
-        with open(dtdDir, "r") as f:
-            txt = f.read()
-        schemaElements = {}
-        for i in txt.split("\n"):
-            if "<!ATTLIST" in i:
-                ele = i.split(" ")[1]
-                schemaElements[ele] = {}
-        for i in txt.split("\n"):
-            if "<!ATTLIST" in i:
-                ele = i.split(" ")[1]
-                attr = i.split(" ")[2]
-                if "(" in i and ")" in i:
-                    attrList = [
-                        sub_attr.strip()
-                        for sub_attr in i.split("(")[1].split(")")[0].split("|")
-                    ]
-                else:
-                    attrList = []
-                if attr not in schemaElements[ele]:
-                    schemaElements[ele][attr] = attrList
-                else:
-                    schemaElements[ele][attr] = schemaElements[ele][attr] + attrList
-        return schemaElements
+    @property
+    def macro_avg(self) -> pd.DataFrame:
+        if self._macro_avg is None:
+            self._macro_avg = self._get_macro_avg()
+        return self._macro_avg
 
-    def get_spans(self, ann1Corpus, ann2Corpus):
-        spanCorpus, txtCorpus, attrCorpus = {}, {}, {}
-        ann2Pool = [i.split("/")[-1] for i in ann2Corpus]
-        for i in ann1Corpus:
-            doc_name = i.split("/")[-1]
-            if doc_name not in ann2Pool:
-                continue
-            spanCorpus[doc_name] = {}
-            txtCorpus[doc_name] = {}
-            soup = ann1Corpus[i]
-            # for e in self.dtdElements
-            for mae_concept in self.schemaElementsAttr:
-                for item in soup.find_all(mae_concept):
-                    mae_cp = item.name
-                    try:
-                        txt = item["text"]
-                    except:
-                        txt = ""
-                    # get spans from MEA v0.9 and v2.0
-                    if item.has_attr("spans"):
-                        attrDict = {}
-                        if "," in item["spans"]:
-                            continue
-                        key_ = doc_name + item.name + "ann1" + item["spans"]
-                        attrList = self.schemaElementsAttr[mae_concept]
-                        for at in attrList:
-                            if item.has_attr(at):
-                                if at not in attrDict:
-                                    attrDict[at] = item[at]
-                        try:
-                            spanCorpus[doc_name][item.name]["ann1"].append(
-                                item["spans"]
-                            )
-                        except KeyError:
-                            spanCorpus[doc_name][item.name] = {
-                                "ann1": [item["spans"]],
-                                "ann2": [],
-                            }
-                        if key_ not in txtCorpus:
-                            txtCorpus[key_] = [txt, attrDict]
-                    elif item.has_attr("start"):
-                        attrDict = {}
-                        spans = item["start"] + "~" + item["end"]
-                        key_ = doc_name + item.name + "ann1" + spans
-                        attrList = self.schemaElementsAttr[mae_concept]
-                        for at in attrList:
-                            if item.has_attr(at):
-                                if at not in attrDict:
-                                    attrDict[at] = item[at]
-                        try:
-                            spanCorpus[doc_name][item.name]["ann1"].append(spans)
-                        except KeyError:
-                            spanCorpus[doc_name][item.name] = {
-                                "ann1": [spans],
-                                "ann2": [],
-                            }
-                        if key_ not in txtCorpus:
-                            txtCorpus[key_] = [txt, attrDict]
-        for i in ann2Corpus:
-            doc_name = i.split("/")[-1]
-            if doc_name not in spanCorpus:
-                continue
-            soup = ann2Corpus[i]
-            for mae_concept in self.schemaElementsAttr:
-                for item in soup.find_all(mae_concept):
-                    try:
-                        txt = item["text"]
-                    except:
-                        txt = ""
-                    if item.has_attr("spans"):
-                        if "," in item["spans"]:
-                            continue
-                        # spans = item['spans'].split('~')
-                        txtCorpus[doc_name][item.name] = {"ann1": {}, "ann2": {}}
-                        key_ = doc_name + item.name + "ann2" + item["spans"]
-                        attrDict = {}
-                        attrList = self.schemaElementsAttr[mae_concept]
-                        for at in attrList:
-                            if item.has_attr(at):
-                                if at not in attrDict:
-                                    attrDict[at] = item[at]
-                        try:
-                            spanCorpus[doc_name][item.name]["ann2"].append(
-                                item["spans"]
-                            )
-                        except KeyError:
-                            spanCorpus[doc_name][item.name] = {
-                                "ann1": [],
-                                "ann2": [item["spans"]],
-                            }
-                        if key_ not in txtCorpus:
-                            txtCorpus[key_] = [txt, attrDict]
-                    elif item.has_attr("start"):
-                        spans = item["start"] + "~" + item["end"]
-                        txtCorpus[doc_name][item.name] = {"ann1": {}, "ann2": {}}
-                        key_ = doc_name + item.name + "ann2" + spans
-                        attrDict = {}
-                        attrList = self.schemaElementsAttr[mae_concept]
-                        for at in attrList:
-                            if item.has_attr(at):
-                                if at not in attrDict:
-                                    attrDict[at] = item[at]
-                        try:
-                            spanCorpus[doc_name][item.name]["ann2"].append(spans)
-                        except KeyError:
-                            spanCorpus[doc_name][item.name] = {
-                                "ann1": [],
-                                "ann2": [spans],
-                            }
-                        if key_ not in txtCorpus:
-                            txtCorpus[key_] = [txt, attrDict]
-        return spanCorpus, txtCorpus
+    @property
+    def errors(self) -> pd.DataFrame:
+        if self._errors is None:
+            self._errors = self._get_errors()
+        return self._errors
 
-    def get_micro_avg(self) -> tuple[float, float, float]:
-        """Return micro average precision, recall, and F1 score."""
-        tp_doc, fp_doc, fn_doc = 0, 0, 0
+    def refresh(self):
+        self._micro_avg = None
+        self._macro_avg = None
+        self._errors = None
+
+    def _get_micro_avg(self) -> dict:
+        """
+        Compute micro-average precision, recall, F1 score, and IAA across all concepts.
+        Returns:
+            dict with precision, recall, f1, iaa
+        """
+        tp_total, fp_total, fn_total = 0, 0, 0
+
         print("TOTAL MICRO AVERAGE:")
-        print("(Aggregation the contributions of all classes)")
-        for doc in self.spanCorpus:
-            for cp in self.spanCorpus[doc]:
+        print("(Aggregating the contributions of all classes)")
 
-                ann1_spans = self.spanCorpus[doc][cp]["ann1"]
-                ann2_spans = self.spanCorpus[doc][cp]["ann2"]
+        for doc in self.span:
+            for concept in self.span[doc]:
+                if concept in self.excluded_concepts:
+                    continue
 
-                tp, fp, fn, *_ = self._cal_matching_overlap_with_text(
-                    ann1_spans, ann2_spans, self.txtCorpus, doc, cp
-                )
-                tp_doc += tp
-                fp_doc += fp
-                fn_doc += fn
-                self.cpLevelOutput += [[doc, cp, tp, fp, fn]]
-        return self.calculate_performance(tp_doc, fp_doc, fn_doc)
-
-    def get_macro_avg_per_category(self, excluded_categories=[]) -> pd.DataFrame:
-
-        results = []
-        tp_doc, fp_doc, fn_doc = 0, 0, 0
-
-        for doc in self.spanCorpus:
-            for cp in self.spanCorpus[doc]:
-
-                ann1_spans = self.spanCorpus[doc][cp]["ann1"]
-                ann2_spans = self.spanCorpus[doc][cp]["ann2"]
+                ann1_spans = self.span[doc][concept]["ann1"]
+                ann2_spans = self.span[doc][concept]["ann2"]
 
                 tp, fp, fn, *_ = self._cal_matching_overlap_with_text(
-                    ann1_spans, ann2_spans, self.txtCorpus, doc, cp
+                    ann1_spans, ann2_spans, doc, concept
                 )
-                tp_doc += tp
-                fp_doc += fp
-                fn_doc += fn
-                self.cpLevelOutput += [[doc, cp, tp, fp, fn]]
 
-        cp_d = {}
-        for cp in self.cpLevelOutput:
-            if cp[1] not in cp_d:
-                cp_d[cp[1]] = [cp[2], cp[3], cp[4]]
-            else:
-                cp_d[cp[1]] = [
-                    cp_d[cp[1]][0] + cp[2],
-                    cp_d[cp[1]][1] + cp[3],
-                    cp_d[cp[1]][2] + cp[4],
-                ]
+                tp_total += tp
+                fp_total += fp
+                fn_total += fn
 
-        precision_macro, recall_macro, f1_macro = [], [], []
-        for k in cp_d:
-            if k in excluded_categories:  # skip excluded categories
-                continue
-            if cp_d[k][0] == 0:
-                print("0 TP found in", k, "please double check your result")
-                precision, recall, f1 = 0, 0, 0
-            else:
-                precision, recall, f1 = self.calculate_performance(
-                    cp_d[k][0], cp_d[k][1], cp_d[k][2]
+        return compute_classification_metrics(tp_total, fp_total, fn_total)
+
+    def _get_macro_avg(self) -> pd.DataFrame:
+
+        concept_scores = {}
+
+        # Aggregate TP, FP, FN by concept across all documents
+        for doc in self.span:
+            for concept in self.span[doc]:
+                if concept in self.excluded_concepts:
+                    continue
+
+                ann1_spans = self.span[doc][concept]["ann1"]
+                ann2_spans = self.span[doc][concept]["ann2"]
+
+                tp, fp, fn, *_ = self._cal_matching_overlap_with_text(
+                    ann1_spans, ann2_spans, doc, concept
                 )
-            total_tags = int(
-                cp_d[k][0] + cp_d[k][1] + cp_d[k][2]
-            )  # Calculate # of tags
-            results.append(
+
+                if concept not in concept_scores:
+                    concept_scores[concept] = {"tp": 0, "fp": 0, "fn": 0}
+                concept_scores[concept]["tp"] += tp
+                concept_scores[concept]["fp"] += fp
+                concept_scores[concept]["fn"] += fn
+
+        # Compute metrics per concept
+        rows = []
+        for concept, counts in concept_scores.items():
+            tp_k, fp_k, fn_k = counts["tp"], counts["fp"], counts["fn"]
+            nb_tags = tp_k + fp_k + fn_k
+
+            if nb_tags == 0:
+                print(f"No annotations found for concept: {concept}. Assigning NaN.")
+                precision, recall, f1 = np.nan, np.nan, np.nan
+            else:
+                metrics = compute_classification_metrics(tp_k, fp_k, fn_k)
+                precision = metrics["precision"]
+                recall = metrics["recall"]
+                f1 = metrics["f1"]
+
+            rows.append(
                 {
-                    "concept_name": k,
-                    "tp": cp_d[k][0],
-                    "fp": cp_d[k][1],
-                    "fn": cp_d[k][2],
-                    "nb_tags": total_tags,
+                    "concept_name": concept,
+                    "tp": tp_k,
+                    "fp": fp_k,
+                    "fn": fn_k,
+                    "nb_tags": nb_tags,
                     "precision": precision,
                     "recall": recall,
                     "f1": f1,
                 }
             )
-            precision_macro += [precision]
-            recall_macro += [recall]
-            f1_macro += [f1]
 
-        # Make a dataframe and sort by # of tags
-        df = pd.DataFrame(results)
+        # Convert to DataFrame
+        df = pd.DataFrame(rows)
         df = df.sort_values("nb_tags", ascending=False)
 
-        # Get macro average
+        # Macro average
         macro_avg = {
-            "concept_name": "",
+            "concept_name": "Macro Average",
             "tp": df["tp"].sum(),
             "fp": df["fp"].sum(),
             "fn": df["fn"].sum(),
@@ -287,354 +142,245 @@ class Evaluation:
             "recall": df["recall"].mean(),
             "f1": df["f1"].mean(),
         }
-        return pd.concat([df, pd.DataFrame([macro_avg])], ignore_index=True)
 
-    def print_mismatch(self, spanCorpus, txtCorpus, corpusDir):
-        home = expanduser("~")
-        txt = "annotation_file|concept_name|annotator|spans|agreement|text" + "\n"
-        for doc in spanCorpus:
-            for cp in spanCorpus[doc]:
-                txt += self.print_cp_evidence(spanCorpus, doc, cp, txtCorpus)
-        our_dir = corpusDir.replace("/input", "/output") + "/annotation_result.csv"
-        with open(our_dir, "wb") as text_file:
-            text_file.write(txt.encode("utf-8"))
-        print("File saved at:", our_dir)
+        # Weighted average
+        proportions = df["nb_tags"] / df["nb_tags"].sum()
+        df["weighted_f1"] = df["f1"] * proportions
+        df["weighted_precision"] = df["precision"] * proportions
+        df["weighted_recall"] = df["recall"] * proportions
 
-    def calculate_performance(self, tp, fp, fn) -> tuple[float, float, float]:
-        try:
-            precision = tp / float(tp + fp)
-            recall = tp / float(tp + fn)
-            specificity = fn
-            f1 = 2 * precision * recall / (precision + recall)
-            iaa_ratio = tp / float(tp + fp + fn)
-            return precision, recall, f1
-        except:
-            print("division zero error")
+        weighted_avg = {
+            "concept_name": "Weighted Average",
+            "tp": df["tp"].sum(),
+            "fp": df["fp"].sum(),
+            "fn": df["fn"].sum(),
+            "nb_tags": df["nb_tags"].sum(),
+            "precision": None,
+            "recall": None,
+            "f1": None,
+            "weighted_precision": df["weighted_precision"].sum(),
+            "weighted_recall": df["weighted_recall"].sum(),
+            "weighted_f1": df["weighted_f1"].sum(),
+        }
 
-    def overlap(self, idx_a_str, ann2):
-        for idx_b_str in ann2:
-            idx_a = idx_a_str.split("~")
-            idx_b = idx_b_str.split("~")
-            aIndices = set(range(int(idx_a[0]), int(idx_a[1])))
-            bIndices = set(range(int(idx_b[0]), int(idx_b[1])))
-            overlap = len(aIndices & bIndices) / float(len(aIndices | bIndices))
-            if overlap >= self.overlap_ratio:
-                return True
-        return False
-
-    def cal_matching_exact(self, ann1, ann2):
-        tp, fp = 0, 0
-        for sp in ann1:
-            if sp in ann2:
-                tp += 1
-            else:
-                fp += 1
-        fn = len(ann2) - tp
-        return tp, fp, fn
-
-    def is_valid_annotation(self, key: str) -> bool:
-        """Ensure certainty is positive and experiencer is patient."""
-        annotation_data = self.txtCorpus.get(key, ["", {}])
-        attributes = annotation_data[1]  # Attributes dictionary
-        return (
-            attributes.get("certainty", "").lower() in ["positive", "confirmed"]
-            and attributes.get("experiencer", "").lower() == "patient"
+        return pd.concat(
+            [df, pd.DataFrame([macro_avg, weighted_avg])], ignore_index=True
         )
 
-    def _cal_matching_overlap_with_text(self, ann1, ann2, txtCorpus, doc, cp):
-        tp, fp, fn = 0, 0, 0
-        matched_ann2 = set()  # Track matched ann2 spans
-        tp_texts, fp_texts, fn_texts = [], [], []
-
-        # Process ann1 (checking TP and FP)
-        for span1 in ann1:
-            key1 = f"{doc}{cp}ann1{span1}"
-            ann1_text = txtCorpus.get(key1, [""])[0]
-            model_is_valid = self.is_valid_annotation(key1)
-            found_match = False
-
-            for span2 in ann2:  # gold standard
-                key2 = f"{doc}{cp}ann2{span2}"
-                ann2_text = txtCorpus.get(key2, [""])[0]
-                ground_truth_valid = self.is_valid_annotation(key2)
-
-                if span1 == span2 or self.overlap(span1, [span2]):
-                    if model_is_valid and ground_truth_valid:
-                        tp += 1
-                        tp_texts.append(
-                            {"text": ann1_text, "span": span1, "error_type": "TP"}
-                        )
-                        matched_ann2.add(span2)
-                    elif (
-                        ground_truth_valid
-                        and not model_is_valid
-                        and not any(
-                            self.overlap(span, [span2])
-                            for span in ann1
-                            if self.is_valid_annotation(f"{doc}{cp}ann1{span}")
-                        )
-                    ):
-                        fn += 1
-                        if span2 not in [
-                            e["span"] for e in fn_texts
-                        ]:  # Prevent duplicate FNs
-                            fn_texts.append(
-                                {"text": ann2_text, "span": span2, "error_type": "FN"}
-                            )
-                    found_match = True
-                    continue
-
-            if (
-                not found_match
-                and model_is_valid
-                and span1 not in [e["span"] for e in fp_texts]
-            ):  # Avoid duplicate FP
-                fp += 1
-                fp_texts.append({"text": ann1_text, "span": span1, "error_type": "FP"})
-
-        # Process ann2 (checking FN)
-        for span2 in ann2:
-            key2 = f"{doc}{cp}ann2{span2}"
-            ann2_text = txtCorpus.get(key2, [""])[0]
-            ground_truth_valid = self.is_valid_annotation(key2)
-
-            if (
-                span2 not in matched_ann2
-                and ground_truth_valid
-                and span2 not in [e["span"] for e in fn_texts]
-            ):  # Prevent duplicate FN
-                fn += 1
-                fn_texts.append({"text": ann2_text, "span": span2, "error_type": "FN"})
-
-        return tp, fp, fn, tp_texts, fp_texts, fn_texts
-
-    def apply_transpose(self, attrDict, cp):
-        for cp_ in self.schemaElementsAttr:
-            if cp_ == cp:
-                print(cp, self.schemaElementsAttr[cp])
-
-    def print_cp_evidence(self, spanCorpus, doc, cp, txtCorpus):
-        ann1 = spanCorpus[doc][cp]["ann1"]
-        ann2 = spanCorpus[doc][cp]["ann2"]
-        txt = ""
-        tp, fp = 0, 0
-        for sp in ann1:
-            key_ = doc + cp + "ann1" + sp
-            # self.apply_transpose(txtCorpus[key_][1], cp)
-            att_txt = ""
-            for m in txtCorpus[key_][1]:
-                att_txt += m + ": " + txtCorpus[key_][1][m] + "|"
-            if sp in ann2:
-                tp += 1
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann1"
-                    + "|"
-                    + sp
-                    + "|"
-                    + "agree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-            elif self.overlap(sp, ann2):
-                tp += 1
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann1"
-                    + "|"
-                    + sp
-                    + "|"
-                    + "agree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-            else:
-                fp += 1
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann1"
-                    + "|"
-                    + sp
-                    + "|"
-                    + "disagree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-        for sp2 in ann2:
-            key_ = doc + cp + "ann2" + sp2
-            att_txt = ""
-            for m in txtCorpus[key_][1]:
-                att_txt += m + ": " + txtCorpus[key_][1][m] + "|"
-            if sp2 in ann1:
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann2"
-                    + "|"
-                    + sp2
-                    + "|"
-                    + "agree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-            elif self.overlap(sp2, ann1):
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann2"
-                    + "|"
-                    + sp2
-                    + "|"
-                    + "agree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-            else:
-                txt += (
-                    doc
-                    + "|"
-                    + cp
-                    + "|"
-                    + "ann2"
-                    + "|"
-                    + sp2
-                    + "|"
-                    + "disagree"
-                    + "|"
-                    + txtCorpus[key_][0]
-                    + "|"
-                    + att_txt
-                    + "\n"
-                )
-        fn = len(ann2) - tp
-        return txt
-
-    def get_errors_per_category(self):
+    def _get_errors(self) -> pd.DataFrame:
+        """
+        Return a DataFrame of span-level FP and FN errors with full text and concept name.
+        """
         error_results = []
 
-        for doc in self.spanCorpus:
-            for cp in self.spanCorpus[doc]:
-                ann1_spans = self.spanCorpus[doc][cp]["ann1"]
-                ann2_spans = self.spanCorpus[doc][cp]["ann2"]
-
-                text = self.txtCorpus.get(doc, {}).get(cp, ["Sentence not found"])
-                error_sentence = text[0] if isinstance(text, list) else text
-
-                for span in ann1_spans:
-                    if span not in ann2_spans and not self.overlap(span, ann2_spans):
-                        error_results.append(
-                            {
-                                "sentence": error_sentence,
-                                "error_type": "FN",
-                                "category": cp,
-                            }
-                        )
-
-                for span in ann2_spans:
-                    if span not in ann1_spans and not self.overlap(span, ann1_spans):
-                        error_results.append(
-                            {
-                                "sentence": error_sentence,
-                                "error_type": "FP",
-                                "category": cp,
-                            }
-                        )
-
-        df_errors = pd.DataFrame(
-            error_results, columns=["sentence", "error_type", "category"]
-        )
-
-        return df_errors
-
-    def get_errors_per_category_with_text(self) -> pd.DataFrame:
-        error_results = []
-
-        for doc in self.spanCorpus:
-            for cp in self.spanCorpus[doc]:
-                ann1_spans = self.spanCorpus[doc][cp]["ann1"]
-                ann2_spans = self.spanCorpus[doc][cp]["ann2"]
+        for doc in self.span:
+            for concept in self.span[doc]:
+                ann1_spans = self.span[doc][concept]["ann1"]
+                ann2_spans = self.span[doc][concept]["ann2"]
 
                 (
-                    tp,
-                    fp,
-                    fn,
-                    tp_texts,
+                    *_,
                     fp_texts,
                     fn_texts,
                 ) = self._cal_matching_overlap_with_text(
-                    ann1_spans, ann2_spans, self.txtCorpus, doc, cp
+                    ann1_spans, ann2_spans, doc, concept
                 )
 
                 for error in fp_texts + fn_texts:
                     error_results.append(
                         {
                             "file": doc,
-                            "concept_name": cp,
+                            "concept": concept,
                             "span": error["span"],
                             "error_type": error["error_type"],
                             "text": error["text"],
+                            "sentence": error["sentence"],
                         }
                     )
 
-        df_errors = pd.DataFrame(
+        df = pd.DataFrame(
             error_results,
-            columns=["file", "concept_name", "span", "error_type", "text"],
+            columns=["file", "concept", "span", "error_type", "text", "sentence"],
         )
 
-        return df_errors
+        return df[~df["concept"].isin(self.excluded_concepts)].reset_index(drop=True)
+
+    def _is_valid_annotation(self, attributes: dict) -> bool:
+        """Ensure certainty is positive/confirmed and experiencer is patient."""
+        return (
+            attributes.get("certainty", "").lower() in {"positive", "confirmed"}
+            and attributes.get("experiencer", "").lower() == "patient"
+        )
+
+    def _overlap(self, idx_a_str: str, ann2_spans: list[str]) -> bool:
+        """Check if two spans overlap based on the given overlap ratio."""
+        start_a, end_a = map(int, idx_a_str.split("~"))
+        range_a = set(range(start_a, end_a))
+
+        for idx_b_str in ann2_spans:
+            start_b, end_b = map(int, idx_b_str.split("~"))
+            range_b = set(range(start_b, end_b))
+
+            iou = len(range_a & range_b) / len(
+                range_a | range_b
+            )  # intersection over union
+            if iou >= self.overlap_ratio:
+                return True
+
+        return False
+
+    def _cal_matching_overlap_with_text(self, ann1, ann2, doc, concept):
+        tp, fp, fn = 0, 0, 0
+        matched_ann2 = set()
+        tp_texts, fp_texts, fn_texts = [], [], []
+
+        ann1_data = self.text[doc][concept]["ann1"]
+        ann2_data = self.text[doc][concept]["ann2"]
+
+        # Process ann1 spans (model predictions)
+        for span1 in ann1:
+            entry1 = ann1_data.get(span1)
+            if not entry1:
+                continue
+
+            is_valid1 = self._is_valid_annotation(entry1["attributes"])
+            sentence1 = entry1["sentence"]
+            found_match = False
+
+            # Try to match against each gold (ann2) span
+            for span2 in ann2:
+                entry2 = ann2_data.get(span2)
+                if not entry2:
+                    continue
+
+                is_valid2 = self._is_valid_annotation(entry2["attributes"])
+                sentence2 = entry2["sentence"]
+
+                if span1 == span2 or self._overlap(span1, [span2]):
+                    # Found an overlapping span
+                    found_match = True
+                    matched_ann2.add(span2)
+
+                    if is_valid1 and is_valid2:
+                        # True Positive
+                        tp += 1
+                        tp_texts.append(
+                            {
+                                "text": entry1["attributes"].get("text", ""),
+                                "span": span1,
+                                "error_type": "TP",
+                                "sentence": sentence1,
+                            }
+                        )
+                    elif is_valid2 and not is_valid1:
+                        # False Negative (model missed a valid gold annotation)
+                        fn += 1
+                        fn_texts.append(
+                            {
+                                "text": entry2["attributes"].get("text", ""),
+                                "span": span2,
+                                "error_type": "FN",
+                                "sentence": sentence2,
+                            }
+                        )
+                    break  # Stop checking after first match
+
+            if not found_match and is_valid1:
+                fp += 1
+                fp_texts.append(
+                    {
+                        "text": entry1["attributes"].get("text", ""),
+                        "span": span1,
+                        "error_type": "FP",
+                        "sentence": sentence1,
+                    }
+                )
+
+        # Process ann2 spans that were not matched (additional FNs)
+        for span2 in ann2:
+            if span2 in matched_ann2:
+                continue
+
+            entry2 = ann2_data.get(span2)
+            if not entry2:
+                continue
+
+            is_valid2 = self._is_valid_annotation(entry2["attributes"])
+            sentence2 = entry2["sentence"]
+
+            if is_valid2:
+                fn += 1
+                fn_texts.append(
+                    {
+                        "text": entry2["attributes"].get("text", ""),
+                        "span": span2,
+                        "error_type": "FN",
+                        "sentence": sentence2,
+                    }
+                )
+
+        return tp, fp, fn, tp_texts, fp_texts, fn_texts
+
+    def _get_spans(self, model_corpus: Corpus, gold_standard_corpus: Corpus):
+        span = defaultdict(dict)
+        text = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+
+        for doc_name in model_corpus.data:
+            if doc_name not in gold_standard_corpus.data:
+                continue
+
+            concepts_in_doc = set(model_corpus.data[doc_name]) | set(
+                gold_standard_corpus.data[doc_name]
+            )
+
+            for concept in concepts_in_doc:
+                model_tags = model_corpus.data[doc_name].get(concept, [])
+                gold_tags = gold_standard_corpus.data[doc_name].get(concept, [])
+
+                span[doc_name][concept] = {"ann1": [], "ann2": []}
+
+                for tag in model_tags:
+                    if "spans" in tag and "," not in tag["spans"]:
+                        span_value = tag["spans"]
+                        span[doc_name][concept]["ann1"].append(span_value)
+                        text[doc_name][concept]["ann1"][span_value] = {
+                            "sentence": tag.get("sentence", ""),
+                            "attributes": tag,
+                        }
+
+                for tag in gold_tags:
+                    if "spans" in tag and "," not in tag["spans"]:
+                        span_value = tag["spans"]
+                        span[doc_name][concept]["ann2"].append(span_value)
+                        text[doc_name][concept]["ann2"][span_value] = {
+                            "sentence": tag.get("sentence", ""),
+                            "attributes": tag,
+                        }
+
+        return dict(span), dict(text)
 
 
 if __name__ == "__main__":
+    from med_sdoh.utils import Corpus
 
-    model_corpus_dir = Corpus("../data/model_annotation", format="mae")
-    gold_standard_corpus_dir = Corpus("../data/human_annotation", format="mae")
-    dtd_path = "../models/MedSDoH/schema.dtd"
-    excluded_categories = [
+    model_corpus = Corpus("path/to/model_corpus")
+    gold_standard_corpus = Corpus("path/to/gold_standard_corpus")
+    schema_path = "path/to/schema.dtd"
+    excluded_concepts = [
         "Sex_At_Birth",
         "Race_or_Ethnicity",
         "Sexual_Orientation",
         "Marital_Status",
     ]
-    # Load the corpora
-    model_corpus = Corpus(model_corpus_dir, format="mae")
-    human_corpus = Corpus(gold_standard_corpus_dir, format="mae")
 
-    eval = Evaluation(model_corpus.soup, human_corpus.soup, dtd_path, overlap_ratio=0.1)
-
-    # Get evalutation performance
-    df = eval.get_macro_avg_per_category(excluded_categories=excluded_categories)
-
-    # Get erros per category
-    df_errors = eval.get_errors_per_category_with_text().sort_values(
-        by=["file", "concept_name"]
+    eval = Evaluation(
+        model_corpus,
+        gold_standard_corpus,
+        schema_path,
+        overlap_ratio=0.5,
+        excluded_concepts=excluded_concepts,
     )
-    df_errors = df_errors[~df_errors["concept_name"].isin(excluded_categories)]
-    df_errors.sort_values(by="concept_name")
+
+    print(eval.micro_avg)
+    print(eval.macro_avg)
+    print(eval.errors)
