@@ -14,6 +14,7 @@ dependencies:
   - ipykernel
   - requests
   - pip:
+      - beautifulsoup4
       - python-dotenv
       - pyodbc
       - -e .
