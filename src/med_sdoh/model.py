@@ -23,20 +23,26 @@ class MedTagger:
         self.input_dir = Path(input_dir)
         self.annotation_dir = Path(annotation_dir)
         self.model_dir = Path(model_dir)
+        self.xml_dir = None
+
         try:
             self.schema_path = (
-                Path(schema_path) if schema_path else list(self.model_dir.rglob("*.dtd"))[0]
+                Path(schema_path)
+                if schema_path
+                else list(self.model_dir.rglob("*.dtd"))[0]
             ).absolute()  # .dtd schema file
         except IndexError:
-            raise FileNotFoundError(
-                f"No .dtd schema file found in {self.model_dir}."
-            )
-        
+            raise FileNotFoundError(f"No .dtd schema file found in {self.model_dir}.")
+
         self.model_name = get_model_name(self.schema_path)
 
     @property
     def annotation_files(self) -> list[Path]:
-        return list(self.annotation_dir.rglob("*.ann"))
+        return [
+            file_path
+            for file_path in self.annotation_dir.rglob("*.ann")
+            if file_path.is_file() and not file_path.name.startswith(".")
+        ]
 
     def run_medtagger(self, clean_up_jar: bool = False) -> None:
         """
@@ -175,7 +181,7 @@ class MedTagger:
 
         return df
 
-    def create_combined_xml(self) -> None:
+    def create_combined_xml(self, save_dir=None) -> None:
         """
         Creates a combined XML annotation files for MedTator.
         """
@@ -231,15 +237,21 @@ class MedTagger:
                 "]]&gt;", "]]>"
             )
             xml_str = f'<?xml version="1.0" encoding="UTF-8" ?>\n{xml_str}'
-            xml_dir = self.input_dir.parent / "medtator"
-            xml_dir.mkdir(exist_ok=True)
-            xml_path = xml_dir / f"{annotation_file_path.with_suffix('').name}.xml"
+
+            # By default, save the XML files in the medtator directory
+            if not save_dir:
+                self.xml_dir = self.input_dir.parent / "medtator"
+                self.xml_dir.mkdir(exist_ok=True)
+            else:
+                self.xml_dir = Path(save_dir)
+                self.xml_dir.mkdir(exist_ok=True)
+            xml_path = self.xml_dir / f"{annotation_file_path.with_suffix('').name}.xml"
             with open(xml_path, "w") as xml_file:
                 xml_file.write(xml_str)
-        print(f"XML files saved to {xml_dir.absolute()}.")
+        print(f"XML files saved to {self.xml_dir.absolute()}.")
 
     def purge_data(
-        self, annotation_files=True, input_data=False, xlm_files=False
+        self, annotation_files=True, input_data=False, xlm_files=False, xml_dir=None
     ) -> None:
         """
         Deletes all files in the annotation directory.
@@ -248,6 +260,12 @@ class MedTagger:
             for file in self.annotation_files:
                 file.unlink()
             print(f"Deleted all files in {self.annotation_dir}.")
+        if xml_dir is not None:
+            self.xml_dir = Path(xml_dir)
+        if xlm_files and self.xml_dir:
+            for file in self.xml_dir.rglob("*.xml"):
+                file.unlink()
+            print(f"Deleted all files in {self.xml_dir}.")
 
         if input_data:
             user_input = input(
