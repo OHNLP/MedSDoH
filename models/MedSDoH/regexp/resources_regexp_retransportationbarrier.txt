@@ -2,7 +2,7 @@
 \b(gas|ride)(\s+\S+){0,5}\s(voucher|concern|barrier|issue|need|problem|assist(ance)?|service|help(ing)?|use|resource|appointment|support|aid)\b
 
 // 2. Mentions of vouchers or assistance related to vehicles or transportation
-\b(voucher|concern|barrier|issue|need|problem|assist(ance)?|service|help(ing)?|use|resource|appointment|support|aid)\s(\s*\S+){0,10}\s(vehicle|car|rides?|transportation|drive|driving|gas)\b
+\b(voucher|concern|barrier|issue|need|problem|assist(ance)?|service|help(ing)?|use|resource|appointment|support|aid)\s(\s+\S+){0,10}\s(vehicle|car|rides?|transportation|drive|driving|gas)\b
 
 // 3. Mentions of traveling by foot
 \b(arrived?|travel(ing)?)\s(to|from|via)(\s+\S+){0,5}\s(by\s)?foot\b
