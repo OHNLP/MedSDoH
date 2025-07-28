@@ -3,6 +3,7 @@ from collections import defaultdict
 
 import numpy as np
 import pandas as pd
+
 from med_sdoh.utils import Corpus, compute_classification_metrics, parse_dtd_schema
 
 
@@ -107,12 +108,11 @@ class Evaluation:
 
             if nb_tags == 0:
                 print(f"No annotations found for concept: {concept}. Assigning NaN.")
-                precision, recall, f1 = np.nan, np.nan, np.nan
-            else:
-                metrics = compute_classification_metrics(tp_k, fp_k, fn_k)
-                precision = metrics["precision"]
-                recall = metrics["recall"]
-                f1 = metrics["f1"]
+                continue
+            metrics = compute_classification_metrics(tp_k, fp_k, fn_k)
+            precision = metrics["precision"]
+            recall = metrics["recall"]
+            f1 = metrics["f1"]
 
             rows.append(
                 {
