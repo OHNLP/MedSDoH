@@ -4,7 +4,7 @@
 
 \b(feels|experiences|reports|expressed|denies|suffers from|struggles with|coping with)\s?(neglect|emotional distress|burnout|sadness|grief|loss|unsupported|isolated|alone|lonely|lack of supervision|limited family interaction|strained relationship|strained family dynamic|relational problem)(\s(?:with|due to|because of|from)\s(husband|roommate|daughters?|mother|family|parents?|social network|support system|community|friends?|caregiver|supervision|resources|assistance))?\b
 
-\b(conflicts?|strained relationships?|strained communication|arguments?|frequent disagreements?|relational problems?|frequent arguments?|difficult relationships?|difficult interactions?|negative relationships?|dysfunctional relationships?|relational problems?)\s(with|between)\s+.*?\b(husband|wife|family|partner|spouse|roommates?|housemates?|daughters?|sons?|mother|father|parents?|siblings?|brothers?|sisters?|aunts?|uncles?|cousins?|grandmother|grandfather|grandparents?|neighbors?|friends?|caregivers?|coworkers?|boss|teachers?|classmates?|cohabitants?)\b
+\b(conflicts?|strained relationships?|strained communication|arguments?|frequent disagreements?|frequent arguments?|difficult relationships?|difficult interactions?|negative relationships?|dysfunctional relationships?|relational problems?)\s+(with|between)(?:\s+\w+){0,5}?\s+(husband|wife|family|partner|spouse|roommates?|housemates?|daughters?|sons?|mother|father|parents?|siblings?|brothers?|sisters?|aunts?|uncles?|cousins?|grandmother|grandfather|grandparents?|neighbors?|friends?|caregivers?|coworkers?|boss|teachers?|classmates?|cohabitants?)\b
 
 \b(frequent arguments|constant conflicts|ongoing disputes|persistent disagreements|recurrent issues|repeated tensions|negative interactions|toxic relationship|strained dynamic|household conflict|family tension|family issues)\b
 
@@ -20,4 +20,4 @@
 
 \b(lack of|absence of|limited|insufficient)\s(supervision|guidance|oversight|parental care|support)\s(from|by)\s(her|his|the|patient's|pt's|mother|father|parents?|guardian|caregiver)\b
 
-\bargumentative\s+(?:\w+\s+)*?(toward|with)\b
+\bargumentative(?:\s+\w+){0,5}?\s+(toward|with)\b
