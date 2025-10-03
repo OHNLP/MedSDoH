@@ -1,6 +1,7 @@
 ./context/contextRule.txt
 ./posthoc_settings.json
 ./rules/resources_rules_matchrules.txt
+./norm/resources_norm_normphysicalactivity.txt
 ./regexp/resources_regexp_readversechildhoodexperience.txt
 ./regexp/resources_regexp_realcoholabuse.txt
 ./regexp/resources_regexp_redrugsubstanceabuse.txt
