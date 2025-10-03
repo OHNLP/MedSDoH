@@ -1,0 +1,69 @@
+physical activity	Physical_Activity
+bodily movement	Physical_Activity
+energy expenditure	Physical_Activity
+exercise	Physical_Activity
+workout	Physical_Activity
+fitness	Physical_Activity
+cardio	Physical_Activity
+aerobic	Physical_Activity
+aerobics	Physical_Activity
+strength training	Physical_Activity
+weightlifting	Physical_Activity
+resistance training	Physical_Activity
+flexibility exercises	Physical_Activity
+flexibility exercise	Physical_Activity
+mobility exercises	Physical_Activity
+mobility exercise	Physical_Activity
+calisthenics	Physical_Activity
+yoga	Physical_Activity
+pilates	Physical_Activity
+tai chi	Physical_Activity
+sports	Physical_Activity
+sport	Physical_Activity
+athletics	Physical_Activity
+athletic	Physical_Activity
+running	Physical_Activity
+jogging	Physical_Activity
+walking	Physical_Activity
+brisk walking	Physical_Activity
+cycling	Physical_Activity
+bicycling	Physical_Activity
+swimming	Physical_Activity
+hiking	Physical_Activity
+climbing stairs	Physical_Activity
+dancing	Physical_Activity
+martial arts	Physical_Activity
+martial art	Physical_Activity
+boxing	Physical_Activity
+rowing	Physical_Activity
+elliptical training	Physical_Activity
+crossfit	Physical_Activity
+high-intensity interval training	Physical_Activity
+HIIT	Physical_Activity
+endurance training	Physical_Activity
+home workout	Physical_Activity
+gym session	Physical_Activity
+leisure-time activity	Physical_Activity
+transport activity	Physical_Activity
+occupational activity	Physical_Activity
+manual labor	Physical_Activity
+domestic chores	Physical_Activity
+household chores	Physical_Activity
+active commuting	Physical_Activity
+active transport	Physical_Activity
+vigorous-intensity activity	Physical_Activity
+moderate-intensity activity	Physical_Activity
+movement-based activity	Physical_Activity
+sedentary lifestyle	Physical_Inactivity
+lack of exercise	Physical_Inactivity
+lack of physical activity	Physical_Inactivity
+physically inactive	Physical_Inactivity
+insufficient exercise	Physical_Inactivity
+no exercise	Physical_Inactivity
+not exercising	Physical_Inactivity
+does not exercise	Physical_Inactivity
+doesn't exercise	Physical_Inactivity
+sedentary	Physical_Inactivity
+inactive	Physical_Inactivity
+low activity	Physical_Inactivity
+minimal activity	Physical_Inactivity

@@ -30,7 +30,7 @@ RULENAME="cm_r_maritalstatus",REGEXP="(?i)\b%remaritalstatus\b",LOCATION="",NORM
 
 RULENAME="cm_r_occupationalnightshift",REGEXP="(?i)\b%reoccupationalnightshift\b",LOCATION="",NORM="Occupational_Night_Shifts" 
 
-RULENAME="cm_r_physicalactivity",REGEXP="(?i)\b%rephysicalactivity\b",LOCATION="",NORM="Physical_Activity"  
+RULENAME="cm_r_physicalactivity",REGEXP="(?i)\b%rephysicalactivity\b",LOCATION="",NORM="%normphysicalactivity(group(1))"  
 
 RULENAME="cm_r_physicalsexualabuse",REGEXP="(?i)\b%rephysicalsexualabuse\b",LOCATION="",NORM="Physical_Sexual_Abuse"  
 
