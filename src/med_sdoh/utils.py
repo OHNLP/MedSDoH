@@ -138,6 +138,98 @@ def parse_dtd_schema(dtd_path: str | pathlib.Path) -> dict:
     return schema
 
 
+def count_regex_patterns(pattern: str) -> int:
+    """
+    Count the number of top-level alternatives in a regex pattern.
+
+    Each top-level alternative (separated by | at depth 0) is counted as a separate pattern.
+    This handles nested parentheses, escaped characters, and character classes correctly.
+
+    Args:
+        pattern: The regex pattern string to count
+
+    Returns:
+        Number of top-level alternatives (patterns)
+
+    Examples:
+        >>> count_regex_patterns("\\b(word1|word2|word3)\\b")
+        3
+        >>> count_regex_patterns("\\b(lack of (supplies|resources)|shortage of (food|water))\\b")
+        2
+    """
+    if not pattern or pattern.strip().startswith("//"):
+        return 0
+
+    pattern = pattern.strip()
+    if not pattern:
+        return 0
+
+    # Remove word boundaries and anchors for counting if present. Handle patterns like \b(...)\b or ^(...)$
+    if pattern.startswith("\\b(") and pattern.endswith(")\\b"):
+        inner_pattern = pattern[3:-3]  # Remove \b( and )\b
+    elif pattern.startswith("(") and pattern.endswith(")"):
+        inner_pattern = pattern[1:-1]  # Remove ( and )
+    else:
+        inner_pattern = pattern
+
+    # Count top-level | separators
+    depth = 0
+    in_char_class = False
+    count = 1
+    i = 0
+
+    while i < len(inner_pattern):
+        char = inner_pattern[i]
+
+        if char == "\\":
+            # Skip escaped character (next char is part of escape sequence)
+            i += 2
+            continue
+        elif char == "[" and not in_char_class:
+            # Enter character class
+            in_char_class = True
+        elif char == "]" and in_char_class:
+            # Exit character class
+            in_char_class = False
+        elif char == "(" and not in_char_class:
+            # Enter group (non-capturing groups like (?:...) also increase depth)
+            depth += 1
+        elif char == ")" and not in_char_class:
+            depth -= 1
+        elif char == "|" and depth == 0 and not in_char_class:
+            # Top-level alternative separator
+            count += 1
+
+        i += 1
+
+    return count
+
+
+def count_patterns_from_file(file_path: str | Path) -> int:
+    """
+    Count total regex patterns from a file, counting each top-level alternative separately.
+
+    Each non-empty, non-comment line is processed, and top-level alternatives within
+    each line are counted separately.
+
+    Args:
+        file_path: Path to the regex pattern file
+
+    Returns:
+        Total number of patterns (top-level alternatives) in the file
+    """
+    file_path = Path(file_path)
+    total_count = 0
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("//"):
+                total_count += count_regex_patterns(line)
+
+    return total_count
+
+
 def compute_classification_metrics(tp: int, fp: int, fn: int) -> dict:
     """
     Calculate precision, recall, F1 score, and IAA.
