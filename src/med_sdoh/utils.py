@@ -164,13 +164,29 @@ def count_regex_patterns(pattern: str) -> int:
     if not pattern:
         return 0
 
-    # Remove word boundaries and anchors for counting if present. Handle patterns like \b(...)\b or ^(...)$
-    if pattern.startswith("\\b(") and pattern.endswith(")\\b"):
+    # Remove word boundaries, anchors, and regex flags for counting if present.
+    # Handle patterns like \b(...)\b, ^(...)$, (?i)\b(...)\b, etc.
+    inner_pattern = pattern
+
+    # Handle regex flags at the start like (?i), (?i-m), etc.
+    if pattern.startswith("(?") and ")" in pattern:
+        # Find the end of the flag group
+        flag_end = pattern.find(")", 2) + 1
+        if flag_end > 0:
+            # Check if followed by \b(
+            remaining = pattern[flag_end:]
+            if remaining.startswith("\\b(") and pattern.endswith(")\\b"):
+                inner_pattern = remaining[3:-3]  # Remove \b( and )\b
+            elif remaining.startswith("(") and pattern.endswith(")"):
+                inner_pattern = remaining[1:-1]  # Remove ( and )
+            elif remaining.startswith("\\b") and pattern.endswith("\\b"):
+                inner_pattern = remaining[2:-2]  # Remove \b and \b
+            else:
+                inner_pattern = remaining
+    elif pattern.startswith("\\b(") and pattern.endswith(")\\b"):
         inner_pattern = pattern[3:-3]  # Remove \b( and )\b
     elif pattern.startswith("(") and pattern.endswith(")"):
         inner_pattern = pattern[1:-1]  # Remove ( and )
-    else:
-        inner_pattern = pattern
 
     # Count top-level | separators
     depth = 0
@@ -203,31 +219,6 @@ def count_regex_patterns(pattern: str) -> int:
         i += 1
 
     return count
-
-
-def count_patterns_from_file(file_path: str | Path) -> int:
-    """
-    Count total regex patterns from a file, counting each top-level alternative separately.
-
-    Each non-empty, non-comment line is processed, and top-level alternatives within
-    each line are counted separately.
-
-    Args:
-        file_path: Path to the regex pattern file
-
-    Returns:
-        Total number of patterns (top-level alternatives) in the file
-    """
-    file_path = Path(file_path)
-    total_count = 0
-
-    with open(file_path, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("//"):
-                total_count += count_regex_patterns(line)
-
-    return total_count
 
 
 def compute_classification_metrics(tp: int, fp: int, fn: int) -> dict:

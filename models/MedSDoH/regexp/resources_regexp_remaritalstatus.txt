@@ -1,5 +1,5 @@
-\b(married|marriage|husband|wife|spouse|fiancé(e)?|engaged (to|to be married)|was married|divorce(d|e)?|divorcee|ex-?(husband|wife)|ended(\s+\S+){0,2}\s?marriage|widow(ed)?)\b
+\b(married|marriage|husband|wife|spouse|fiancé(e)?|engaged to|was married|divorce(d|e)?|divorcee|ex-husband|ex-wife|widow(ed)?)\b
 \b(significant|intimate|romantic)\srelationship(s?)\b
 \b(dating|going out with|girlfriend|boyfriend|partner)\b
-\b(single|no(t)?(\s+\S*){0,2}\srelationship(s?)?|relationship(\s+\S*){0,2}\snone currently)\b
-\b(husband|wife)(\s+\S*){0,5}\s(passed away|died|deceased)\b
+\b(single|no relationship|not in relationship|relationship none)\b
+\b(husband|wife)\s+(passed away|died|deceased)\b
