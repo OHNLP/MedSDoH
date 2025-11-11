@@ -1,0 +1,46 @@
+Category,Definition,Impact,Interpretation
+Adverse Childhood,"Adverse childhood experiences, or ACEs, are potentially traumatic events that occur in childhood (0-17 years). Examples include:
+•	Experiencing violence, abuse, or neglect.
+•	Witnessing violence in the home or community.
+•	Having a family member attempt or die by suicide.
+Also included are aspects of the child’s environment that can undermine their sense of safety, stability, and bonding. Examples can include growing up in a household with:
+•	Substance use problems.
+•	Mental health problems.
+•	Instability due to parental separation.
+•	Instability due to household members being in jail or prison.",negative,Presence indicates the patient experienced adverse childhood events.
+Alcohol Abuse,"Alcohol use disorder (AUD) is a medical condition characterized by an impaired ability to stop or control alcohol use despite adverse social, occupational, or health consequences.",negative,Presence indicates the patient is experiencing or has experienced alcohol abuse.
+Drug/ Substance Abuse,"The use of illegal drugs or the use of prescription or over-the-counter drugs for purposes other than those for which they are meant to be used, or in excessive amounts. Drug abuse may lead to social, physical, emotional, and job-related problems.",negative,Presence indicates the patient is experiencing or has experienced drug or substance abuse.
+Education level,"•	High school or below college
+•	Bachelor’s or above
+•	No formal education
+•	Some High School
+•	High School Graduate 
+•	Some College 
+•	Associate Degree Graduate 
+•	College (4-Year) Graduate 
+•	Some Graduate School
+•	Graduate School Graduate (MS, MA) 
+•	Graduate School Graduate (PhD, JD, MD)",neutral,Captures patient's education level.
+Employment status,"•	Unemployed
+•	Retired
+•	On disability
+•	Homemaker
+•	Other/uncertain",negative,Presence indicates the patient is unemployed or not in the workforce.
+Environmental exposure,"Environmental exposure refers to contact with chemical, biological, or physical substances found in air, water, food, or soil that may have a harmful effect on a person's health.",negative,Presence indicates the  harmful environmental exposure.
+Financial strain,"Lack of cash or savings, or long-term or short-term loss of reliable income sources. Evidence of requiring assistance to afford living basics.",negative,Presence indicates the patient is experiencing or has experienced financial strain.
+Food insecurity,Unable to access nutritious and affordable food. Evidence of requiring assistance to secure food supply.,negative,Presence indicates the patient is experiencing or has experienced food insecurity.
+Gender identity,"Gender identity is the personal sense of one's own gender. Gender identity can correlate with a person's assigned sex or can differ from it. In most individuals, the various biological determinants of sex are congruent, and consistent with the individual's gender identity.",neutral,Captures patient's gender identity.
+Geographic location,"•	Location born
+•	Location raised",neutral,Captures patient's geographic background.
+Health Literacy,"Gap in administrative health literacy, such as English language, insurance, or medical assistance application.",negative,Presence indicates the patient has low health literacy.
+Home and social environment,"Lack of safety, insecurity, or poor physical condition of one’s home or social surroundings.",negative,Presence indicates the patient is living in an inadequate social environment.
+Housing instability ,Instability such as homelessness or difficulty paying rent or utilities.,negative,Presence indicates the patient is experiencing or has experienced housing instability.
+Insurance Status,(Health insurance) A contract that requires your health insurer to pay some or all your health care costs in exchange for a premium.,negative,Presence indicates the patient lacks adequate health insurance.
+Occupational night shifts,Work schedules where the primary working hours occur during the nighttime,negative,Presence indicates the patient works night shifts.
+Physical activity,"WHO defines physical activity as any bodily movement produced by skeletal muscles that requires energy expenditure. Physical activity refers to all movement including during leisure time, for transport to get to and from places, or as part of a person’s work or domestic activities. Both moderate- and vigorous-intensity physical activity improve health.",neutral,Presence indicates the patient's engagement in physical activity; requires context to interpret the impact.
+Physical/sexual abuse,"Physical abuse is intentional bodily injury. Some examples include slapping, pinching, choking, kicking, shoving, or inappropriately using drugs or physical restraints. Sexual abuse is nonconsensual sexual contact (any unwanted sexual contact). Examples include unwanted touching, rape, sodomy, coerced nudity, sexual explicit photographing. ",negative,Presence indicates the patient is experiencing or has experienced physical or sexual abuse.
+Smoking status,"A recoded variable based on several questions about cigarette smoking. It includes the categories of current smoker, former smoker, never smoked, and smoking status unknown. Includes vaping.",negative,Presence indicates the patient smokes or has smoked.
+Social/ family support,"Lack of physical and emotional comfort derived from one’s family, friends, colleagues, and community. It includes constructs such as emotional support, instrumental support, and social network, which are associated with improved health outcomes. Social isolation is associated with higher health care expenditure, morbidity, and mortality, and may be as harmful as smoking fifteen cigarettes a day.",negative,Presence indicates the patient lacks social or family support.
+Supplies,"Lack of availability, stability, and adequacy of essential resources that support daily living and well-being.",negative,Presence indicates the patient lacks adequate supplies.
+Technical Literacy ,"Technical literacy is the ability to use, understand, and manage technology safely, effectively, and responsibly. It also includes the ability to create, evaluate, and integrate information using technology.  ",negative,Presence indicates the patient lacks technical literacy .
+Transportation Barrier,"Transportation issues due to socioeconomic constraints that prevent access to goods and services, such as health care visits.",negative,Presence indicates the patient is experiencing or has experienced a transportation barrier.
