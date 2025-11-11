@@ -138,6 +138,89 @@ def parse_dtd_schema(dtd_path: str | pathlib.Path) -> dict:
     return schema
 
 
+def count_regex_patterns(pattern: str) -> int:
+    """
+    Count the number of top-level alternatives in a regex pattern.
+
+    Each top-level alternative (separated by | at depth 0) is counted as a separate pattern.
+    This handles nested parentheses, escaped characters, and character classes correctly.
+
+    Args:
+        pattern: The regex pattern string to count
+
+    Returns:
+        Number of top-level alternatives (patterns)
+
+    Examples:
+        >>> count_regex_patterns("\\b(word1|word2|word3)\\b")
+        3
+        >>> count_regex_patterns("\\b(lack of (supplies|resources)|shortage of (food|water))\\b")
+        2
+    """
+    if not pattern or pattern.strip().startswith("//"):
+        return 0
+
+    pattern = pattern.strip()
+    if not pattern:
+        return 0
+
+    # Remove word boundaries, anchors, and regex flags for counting if present.
+    # Handle patterns like \b(...)\b, ^(...)$, (?i)\b(...)\b, etc.
+    inner_pattern = pattern
+
+    # Handle regex flags at the start like (?i), (?i-m), etc.
+    if pattern.startswith("(?") and ")" in pattern:
+        # Find the end of the flag group
+        flag_end = pattern.find(")", 2) + 1
+        if flag_end > 0:
+            # Check if followed by \b(
+            remaining = pattern[flag_end:]
+            if remaining.startswith("\\b(") and pattern.endswith(")\\b"):
+                inner_pattern = remaining[3:-3]  # Remove \b( and )\b
+            elif remaining.startswith("(") and pattern.endswith(")"):
+                inner_pattern = remaining[1:-1]  # Remove ( and )
+            elif remaining.startswith("\\b") and pattern.endswith("\\b"):
+                inner_pattern = remaining[2:-2]  # Remove \b and \b
+            else:
+                inner_pattern = remaining
+    elif pattern.startswith("\\b(") and pattern.endswith(")\\b"):
+        inner_pattern = pattern[3:-3]  # Remove \b( and )\b
+    elif pattern.startswith("(") and pattern.endswith(")"):
+        inner_pattern = pattern[1:-1]  # Remove ( and )
+
+    # Count top-level | separators
+    depth = 0
+    in_char_class = False
+    count = 1
+    i = 0
+
+    while i < len(inner_pattern):
+        char = inner_pattern[i]
+
+        if char == "\\":
+            # Skip escaped character (next char is part of escape sequence)
+            i += 2
+            continue
+        elif char == "[" and not in_char_class:
+            # Enter character class
+            in_char_class = True
+        elif char == "]" and in_char_class:
+            # Exit character class
+            in_char_class = False
+        elif char == "(" and not in_char_class:
+            # Enter group (non-capturing groups like (?:...) also increase depth)
+            depth += 1
+        elif char == ")" and not in_char_class:
+            depth -= 1
+        elif char == "|" and depth == 0 and not in_char_class:
+            # Top-level alternative separator
+            count += 1
+
+        i += 1
+
+    return count
+
+
 def compute_classification_metrics(tp: int, fp: int, fn: int) -> dict:
     """
     Calculate precision, recall, F1 score, and IAA.
