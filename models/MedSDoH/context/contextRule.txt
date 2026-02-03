@@ -261,8 +261,8 @@ is negative~|~post~|~neg~|~1
 was possible~|~post~|~poss~|~1
 was probable~|~post~|~poss~|~1
 was negative~|~post~|~neg~|~1
-regex:*:\s(no|none)\s*(?:$|[,.!?])~|~post~|~neg~|~2
-regex:*:\s*none\s*(?:$|[,.!?])~|~post~|~neg~|~2
+regex:\s(no|none)\s*(?:$|[,.!?])~|~post~|~neg~|~2
+regex:\s*none\s*(?:$|[,.!?])~|~post~|~neg~|~2
 asymptomatic~|~pre~|~poss~|~1
 absence of~|~pre~|~neg~|~1
 absence for~|~pre~|~neg~|~1
