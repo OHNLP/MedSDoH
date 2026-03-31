@@ -19,9 +19,7 @@ alcoholic encephalopathy
 alcoholic fatty liver
 alcohol.?induced
 alcoholism
-//drunken
 excessive drinking
-//\bAA\b
 alcoholic
 alcoholism
 \bAUD\b

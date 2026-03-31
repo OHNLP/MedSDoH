@@ -1,38 +1,16 @@
-// Financial concerns, assistance, constraints, or hardships
 \b(financ(ial|es)?|subsidized|economic|pca|clothing|cash)(\s+\S+){0,5}\s(assistance|support|concerns?|constraints?|difficult(y|ies)|stress(ors?)?|problems?|limit(ed)?|needs?|hardship)\b
-
-// Struggles or difficulties with finances or coverage
 \b(assist(ing)?|help(ing)?|difficult|eligibility|barriers?|struggl(es?|ing)|anxiet(ies|y))(\s+\S+){0,15}\s(finances?|financial(\s+(resources?|assistance))?|clothing|coverage|affording?)\b
-
-// Insufficient or limited income
 \b(decreased|insufficient|not enough|less|fixed|limited|reduction|no|expenses exceed|does not have|doesn'?t have|lack of)(\s+\S+){0,5}\s(income)\b
-
-// Inability to afford costs, bills, or services
 \b((can|could)?\s?not|(un)?able to|not have|hard|options?|concern(s|ed)?|difficult(y|ies)|worr(y|ied)|ow(es|ing)?|inability|high)(\s+\S+){0,5}\s(afford(ing)?|pay|bill(s)?|cost(s)?|business|money)\b
-
-// Repossession or loss of assets (e.g., car)
 \b(car(\s+\S+){0,3}\s(re(\S| )?possessed|taken)|taken(\s+\S+){0,3}\s(car))\b
-
-// Paycheck limitations
 \b(paychecks?(\s+\S+){0,10}\s(limit(ed)?|small))\b
-
-// Financial dependency or constraints
 \b(due to|as)\sfinances\b
 \bdepending on(\s+\S+){0,2}\sfinancially\b
-
-// Health care and government assistance
 \bhealth care(\s+\S+){0,10}\sgovernment\b
-
-// Issues understanding costs or payments
 \b(spend down|don(')?t know)(\s+\S+){0,10}\s(cost|pay)\b
-
-// Insurance appeals
 \bappeal(\s+\S+){0,10}\s(insur(ance|er))\b
-
-// Miscellaneous patterns
 \bno hpe\b
 \bconnect(ing)? with(\s+\S+){0,4}\s(social|health)\swork(er)?\b
-
 \b(SSI|SSD|S\.S\.I\.|S\.S\.D\.|social security (disability|benefits)|receives (SSI|SSD)|qualifies for (SSI|SSD)|on (SSI|SSD)|having (SSI|SSD)|financial (assistance|difficult(y|ies)|burden|constraints?|hardship|struggles?|problems?|instability|insecurity)|monetary (assistance|issues|problems?|challenges)|economic (difficulty|hardship|barrier|stress|constraint)|unable to afford|cost(s)? that (inhibit|prevent|restrict) (access|ability)|low income|waiting for benefits|public assistance|welfare|debt|expense(s)? exceed(s)? income|income limitation(s)?)\b
 \b(Harris Health Gold Card|BakerRipley)\b
 FAP letter

@@ -1,20 +1,7 @@
-// Mentions of gas, ride, or transportation-related needs or issues
 \b(gas|ride)(\s+\S+){0,5}\s(voucher|concern|barrier|issue|need|problem|assist(ance)?|service|help(ing)?|use|resource|appointment|support|aid)\b
-
-// Mentions of vouchers or assistance related to vehicles or transportation
 \b(voucher|concern|barrier|issue|need|problem|assist(ance)?|service|help(ing)?|use|resource|appointment|support|aid)\s(\s+\S+){0,10}\s(vehicle|car|rides?|transportation|drive|driving|gas)\b
-
-// Mentions of traveling by foot
 \b(arrived?|travel(ing)?)\s(to|from|via)(\s+\S+){0,5}\s(by\s)?foot\b
-
-// Mentions of hitchhiking
 \bhitchhiking\b
-
-// Generalized expressions for requesting transportation help
 \b(would like|wants?|seeks?|requests?|needs?|requires?)\s+(transportation|ride|vehicle|car|driving|commute|travel)\s+(assistance|help|service|support|resource|aid|options?)\b
-
-// Added explicit phrase match for "issues with transportation"
 \b(report(ed|s)?|experience(d|s)?|mention(ed|s)?|express(ed|es)?|state(d|s)?)\s(issues?|problems?|concerns?)\s(with|about)?\s(transportation|ride|vehicle|car|commute|travel)\b
-
-// MetroLift and Medicaid Transportation (Case-Insensitive)
 \b(metro\s*lift|medicaid\s*transportation|needs?transportation)\b

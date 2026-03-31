@@ -1,19 +1,8 @@
-// Common transgender terms and phrases
 \b(F to M|M to F|trans(gender| female| male| men| people| women)?|trans-?(gender|masculine|feminine|health)?|transmen|transwomen)\b
 \b(transsexual|transvest|intersex|reassignment surgery|sex (change|reassignment)|gender (reassignment|confirmation|surgery|transition))\b
-
-// Non-binary and gender-fluid identities
 \b(non-?binary|gender(-)?(fluid|queer|neutral|nonconform(ing)?|non-conform(ing)?)|genderfluid|null gender|gender creative|agender)\b
-
-// Hormonal and surgical procedures related to gender identity
 \b(feminization|feminizing (hormone therapy|vaginoplasty)|masculinization|masculinizing hormone therapy)\b
 \b(hormonal transition|gender affirm(ing)?|transition to (male|female))\b
-
-// Mentions of gender identity, pronouns, and dysphoria
 \b(gender (dysphoria|identity (disorder|issues?|uncertain)|incongruence|issues|presentation|pronoun)|they/them|theythem)\b
-
-// Other gender identity-related terms
 \b(misgender|dead[ -]?name|desired gender|binary trans|cross (gender|sex))\b
-
-// LGBTQ+ and community terms
 \b(LGBT\+?|LGBTQ\+?|LGBTQIA\+?)\b
